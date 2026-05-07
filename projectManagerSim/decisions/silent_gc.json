@@ -1,0 +1,24 @@
+{
+    "decision_type": "PROJECT",
+    "percentage_chance": 2,
+    "decision": {
+        "title": "Nobody's Talking",
+        "body": "The group chat has been dead for 2 days. No updates, questions, or anything really."
+    },
+    "repeatable": true,
+    "deadline": 1,
+    "related_name": "filler_quiet_chat",
+    "options": [
+        {
+            "text": "Leave it.",
+            "score_effect": 0
+        },
+        {
+            "text": "Send a quick check-in message.",
+            "score_effect": 0,
+            "communication_skills_effect": 1.05,
+            "happiness_effect": 1.04,
+            "stress_effect": 0.95
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+{% extends "admin_base.html" %}
+{% block title %}Admin Statistics{% endblock %}
+
+{% block page_body %}
+  <div class="stats-grid">
+    {% include "admin/partials/stat_card.html" with icon="💾" label="Total Saves" value=total_saves_count|default:"0" %}
+    {% include "admin/partials/stat_card.html" with icon="🟢" label="Ongoing Saves" value=ongoing_saves_count|default:"0" %}
+    {% include "admin/partials/stat_card.html" with icon="✅" label="Completed Saves" value=completed_saves_count|default:"0" %}
+
+    <div class="stat-card">
+      <div class="circle-chart">📈</div>
+      <div class="stat-info">
+        <div class="label">Avg Progress</div>
+        <div class="value">{{ avg_progress|default:"0" }}%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    {% include "admin/partials/stat_card.html" with icon="📅" label="Avg Days in Project" value=avg_current_day|default:"0" %}
+    {% include "admin/partials/stat_card.html" with icon="🏆" label="Avg Project Score" value=avg_project_score|default:"0" %}
+    {% include "admin/partials/stat_card.html" with icon="👥" label="Avg Team Size" value=avg_team_size|default:"0" %}
+
+    <div class="stat-card">
+      <div class="circle-chart">📦</div>
+      <div class="stat-info">
+        <div class="label">Game Content</div>
+        <div class="value">
+          {{ characters_count|default:"0" }} chars · {{ tasks_count|default:"0" }} tasks
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:16px;">
+    <h3 class="panel-title">Navigation</h3>
+    <p class="panel-subtitle">Inspect game content lists or review saves.</p>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:12px;">
+      <a class="btn-secondary-custom" href="{% url 'character_list' %}">Characters</a>
+      <a class="btn-secondary-custom" href="{% url 'task_type_list' %}">Task Types</a>
+      <a class="btn-primary-custom" href="{% url 'admin_save_list' %}">Open Saves Spreadsheet</a>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-bottom:16px;">
+    {% include "admin/partials/run_statistics.html" %}
+  </div>
+
+  <div class="panel">
+    <h3 class="panel-title">Top Saves by Progress</h3>
+    <p class="panel-subtitle">Highest completion saves in the database.</p>
+
+    <div style="overflow:auto;">
+      <table class="table table-sm align-middle" style="margin-top:12px;">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Save</th>
+            <th>Status</th>
+            <th>Progress</th>
+            <th>Days</th>
+            <th>Score</th>
+            <th>Last Used</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in top_saves %}
+            <tr>
+              <td><strong>{{ s.user.username }}</strong></td>
+              <td>{% if s.save_name %}{{ s.save_name }}{% else %}#{{ s.id }}{% endif %}</td>
+              <td>{{ s.status }}</td>
+              <td>{{ s.progress_percent }}%</td>
+              <td>{{ s.current_day }} / {{ s.total_days }}</td>
+              <td>{{ s.score }}</td>
+              <td>{{ s.last_used }}</td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="7" class="text-muted">No saves found. Run <code>python manage.py seed</code>.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

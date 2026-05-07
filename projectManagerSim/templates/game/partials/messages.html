@@ -1,0 +1,11 @@
+
+
+<div class="position-fixed bottom-0 end-0 m-4" style="z-index: 1000; width: 300px;" id="messages">
+    {% include 'partials/messages_inner.html' %}
+
+
+</div>
+
+{{ save.available_decisions|json_script:"decisions-data" }}
+{% load static %}
+<script src="{% static 'gameplay_dashboard/js/messages.js' %}"></script>

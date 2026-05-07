@@ -1,0 +1,59 @@
+{% extends "admin_base.html" %}
+{% load static %}
+{% block title %}Admin Settings{% endblock %}
+
+{% block content_header %}{% endblock %}
+
+{% block page_body %}
+
+<div class="d-flex align-items-center justify-content-between mb-4">
+  <div>
+    <h2 class="mb-0 fw-semibold">Settings</h2>
+    <small class="text-muted">Manage your account details</small>
+  </div>
+  <a class="btn-secondary-custom" href="{% url 'admin_dashboard' %}">
+    ← Back
+  </a>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+
+  <div class="col d-flex">
+    <div class="panel w-100">
+      <h5 class="panel-title">Change Password</h5>
+      <p class="panel-subtitle mb-3">Update your password to keep your account secure.</p>
+      <form action="{% url 'admin_settings' %}" method="post" class="d-flex flex-column h-100">
+        {% csrf_token %}
+        <div class="mb-3">
+          {% include 'user/partials/bootstrap_form.html' with form=form %}
+        </div>
+        <div class="mt-auto d-flex justify-content-end">
+          <button type="submit" name="change_password" class="btn-primary-custom">
+            Update Password
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col d-flex">
+    <div class="panel w-100">
+      <h5 class="panel-title">Change Email</h5>
+      <p class="panel-subtitle mb-3">Update the email linked to your account.</p>
+      <form action="{% url 'admin_settings' %}" method="post" class="d-flex flex-column h-100" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+          {% include 'user/partials/bootstrap_form.html' with form=email_form %}
+        </div>
+        <div class="mt-auto d-flex justify-content-end">
+          <button type="submit" name="change_email" class="btn-primary-custom">
+            Update Email
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

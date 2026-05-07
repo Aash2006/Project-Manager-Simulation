@@ -1,0 +1,160 @@
+story concept- you completed your signup forms late, and so got stuck with
+the options nobody wants
+
+kept most emotions at baseline, except for one, so they feel more like 
+caricatures and hence its more fun
+cause a character is 2-4 bad decisions away from crashing out every
+but if you're a bad enough player all your characters can end up all over the place
+
+The Narcassist
+Big ass ego but poor skills and a little lazy
+He fishes for compliments all the time, and always volunteers for the hardest
+tasks but does poorly on them, and the doesnt accept criticism well
+If his confidence hits max (200), he will argue with other characters if they 
+get 'better' tasks than him and refuse to work until he is 'treated as he
+deserves', so player will have to placate him
+Poor relationships with the others, but thinks they're all jealous of how 
+smart and amazing he is
+goal: get him to chill and improve his skills
+scenarios: 
+- message from supervisor telling you his task was completed very poorly, player
+  must choose how to handle it
+- noone else wants to work with him, but there is a surprise bonues task that 
+  requires everyone to work. Standard will fall if team not in harmony, so
+  must try and reconcile him with some teammates
+- misses a team meeting because he 'already knows' everything- group message
+- have to convince him to read up on some skills he should know- direct message
+- possible final scenario: crisis hit and he is the only one availble to do xyz piece 
+  of work right before the deadline. you have to trust that he did it well. 
+  If you made good choices with him throughout the game, he will have improved
+  in skill and reduced ego enough to do it well. if not, you'll be screwed
+
+
+The Zealot
+Too dedicated, and so obsesses over small details and takes ages to recover
+because of her terrible work-life balance, and takes ages to complete her
+work
+takes on too much and so gets spread thin
+does loads of half-finished work (backend but no tests, e.g)
+when she maxes out she will stay awake for days on end with shit energy
+and filling the code with bugs
+lazier teammates like her cause she shoulders all the work for her but more
+serious ones find her annoying cause she can't get anything done on time
+scenarios:
+- have to convince her to take a break because her energy is so low that the
+  completion standard of them all is low- supervisor message
+- you put her on rest but she decides she wants to work and so direct messages
+  you that she is working anyway
+- impliments entire functions that were outside project scope because 'i just
+  felt like we needed them'
+- changes someone elses work completely (should make code contributions part
+  of game_stats? will show the overall completion standrd too, but not individuals
+  unless supervisor lets you know) but the result is soo much better. what
+  do you do?
+
+
+The Burnout
+Always tired and stressed as shit
+Has a bunch of side part time jobs so will randomly not do any work because he
+was given a last minute shift
+comedically terrible things happen to him frequently, making him more and more
+stressed always
+characters will start getting annoyed if you give him too much slack but he
+lowk needs it
+goal: a good player would realise try and give him easier tasks and pair him with
+friends as often as possible
+scenarios:
+- his local cafe burns down so he doesnt get his coffee for a few days idk you
+  gotta mitigate his stress and reassign for him
+- his dog runs away and so he has to take the day off to put up posters- player
+  decides, do you let him go, or press him
+- his sister gave birth to a quadruplets and so he has to babysit them or idk
+  these dont actually effect the game much come up with something better
+
+The Hothead
+Everyone loves him at start but over time team relationships will slowly erode
+as he frequently blows up at characters
+argues a lot and will get angry if people are even slightly short with him
+CRashes out frequently but then calms quickly but then crashes out again
+Will crashout if his code isnt working
+Will crashout if someone else code isnt working
+Will crashout if he doesnt get his way, if his energy is low, if his happiness is low
+Aka will crashout over anything
+scenarios:
+- he wants a particular task and by now you know he will crash out if not given
+  the one he wants so must placate him well. maybe you can choose formt he availble
+  tasks to give him one as an alternate.
+
+The Overachiever
+Doesn't like anyone, doesnt wannna talk to anyone, will never say a word in the
+gc but always pulls up with astounding work
+Will fight with teammates if paired together, will intentionally aggravate them
+probably expecially the HotHead
+Genuine ragebaiiter, like she will intentionally make every argument worse
+whether she has to or not
+But also a little more easily irritated 
+scenarios:
+
+The Concilliator
+A little too good of a communicator- overly honest even when not needed
+Talks the most shit behind everyones backs and starts rumours but is always
+ready to communicate and solve them. 
+This character will sew discord among the team if you're not careful
+But good at resolving conflicts other people get into as well though
+scenarios:
+
+The Yes-Man
+Will always deliver what you want but never has any of his own ideas
+No relationships, keeps it 100% professional
+Goal: him making a friend will make him more dedicated
+scenarios:
+- he messages you telling you all the problems he found in the code. doesn't fix
+  any of them though
+
+The Pushover
+Way too easily influenced, changes her mind so often she can never get anything
+done, one person saying one thing to her influences her, one character being
+emotional in the group chat will make her hit her max as well
+scenarios:
+- messages you asking very basic questions and will get realllly sad if you ignore them
+
+The Conscript
+Doesnt wanna anything beyond the bare minimum, and even that is a push. 
+Standard always at eactly 40% aka the pass mark. Only speaks to and works well 
+with friends. Will frequently come up with excuses to try and skip meetings
+you have to figure out how much rope to give her
+will bring eveyrones dedication down if she is messaging int he gc doing
+fuckall and you let her
+scenarios:
+- missed a meeting and you have to chase them up
+- teambuilding to bring her dedication up, maybe defending her from teammates
+  attacking her will make her care a bit more
+- being understanding sometimes helps, but you also have to be firm and not let
+  her play in your face because she will if you let her
+
+
+The Wildcard
+Highly dedicated, highly skilled, highly stressed and highly unreliable
+Does whatever he wants ig. 
+scenarios:
+- one where he just doesnt show up the whole time. he pops up the day before
+submission and says 'oh i can do my part now thanks guys its looking good!' and
+player has to choose between letting him help adn potentially ruining the project
+or refusing
+- will randomly be full of enthusiasm then next second crashout from stress hitting him
+
+
+
+
+Project scenarios
+- surprise task pops up and have to choose who to give it to, and they're all
+  in shit at that point so theres no good option
+- specific project scenarios happen at the 25, 50, and 75% mark in every run
+- 50% scenario idea- supervisor sends a reminder about the review meeting the next day
+  which the player 'forgot' about, so now she has to get the team on it.
+  if your characters are high stressed they'll panic 
+  in the gc and start crying and shit. if your characetrs arent dedicated 
+  enough they will give up and not do anything etc.
+- the day before final, a merge with main causes all your code to crash, everyone 
+  much lock in to fix them. at this point, characters much choose to quit or 
+  keep going

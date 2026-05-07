@@ -1,0 +1,123 @@
+
+
+   @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+   /* ---- CSS VARIABLES ---- */
+   :root {
+     --bg-deep:        #0f0c1d;
+     --bg-dark:        #1a1535;
+     --bg-card:        #231d42;
+     --bg-card-hover:  #2d2657;
+     --accent-primary: #7c3aed;
+     --accent-glow:    #8b5cf6;
+     --accent-cyan:    #06b6d4;
+     --accent-success: #10b981;
+     --accent-warning: #f59e0b;
+     --accent-danger:  #ef4444;
+     --text-primary:   #f1f0ff;
+     --text-secondary: #a89ec9;
+     --text-muted:     #6b5f8a;
+     --border-subtle:  rgba(139, 92, 246, 0.15);
+     --border-hover:   rgba(139, 92, 246, 0.4);
+     --glass-bg:       rgba(35, 29, 66, 0.45);
+     --glass-border:   rgba(139, 92, 246, 0.18);
+     --shadow-sm:      0 2px 8px rgba(0,0,0,0.3);
+     --shadow-md:      0 4px 20px rgba(0,0,0,0.4);
+     --shadow-lg:      0 8px 40px rgba(0,0,0,0.5);
+     --shadow-glow:    0 0 15px rgba(124, 58, 237, 0.15);
+     --radius-sm:      10px;
+     --radius-md:      14px;
+     --radius-lg:      18px;
+     --radius-xl:      24px;
+     --transition:     all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+   
+     /* State colors */
+     --working-color:  #06b6d4;
+     --working-glow:   #22d3ee;
+     --working-border: rgba(6, 182, 212, 0.4);
+     --resting-color:  #10b981;
+     --resting-glow:   #6ee7b7;
+     --resting-border: rgba(16, 185, 129, 0.4);
+   }
+   
+   /* ---- RESET ---- */
+   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+   html { scroll-behavior: smooth; }
+   
+   body {
+     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+     background: var(--bg-deep);
+     color: var(--text-primary);
+     min-height: 100vh;
+     line-height: 1.6;
+     font-size: 15px;
+     font-weight: 400;
+   }
+   
+   /* ---- SCROLLBAR ---- */
+   ::-webkit-scrollbar { width: 5px; height: 5px; }
+   ::-webkit-scrollbar-track { background: transparent; }
+   ::-webkit-scrollbar-thumb { background: var(--accent-primary); border-radius: 3px; }
+   ::-webkit-scrollbar-thumb:hover { background: var(--accent-glow); }
+   
+   /* ---- TYPOGRAPHY ---- */
+   h1, h2, h3, h4, h5, h6 {
+     color: var(--text-primary);
+     font-weight: 600;
+     line-height: 1.3;
+     letter-spacing: -0.01em;
+   }
+   h1 { font-size: 2rem; font-weight: 700; }
+   h2 { font-size: 1.6rem; }
+   h3 { font-size: 1.3rem; }
+   h4 { font-size: 1.1rem; }
+   
+   p { color: var(--text-secondary); }
+   a { color: var(--accent-glow); text-decoration: none; transition: var(--transition); }
+   a:hover { color: var(--accent-cyan); }
+   small { color: var(--text-muted); font-size: 0.8rem; }
+   hr { border-color: var(--border-subtle) !important; opacity: 1; }
+   
+   /* ---- TEXT UTILITIES ---- */
+   .text-muted { color: var(--text-muted) !important; }
+   .text-secondary { color: var(--text-secondary) !important; }
+   .text-light { color: var(--text-primary) !important; }
+   .text-primary { color: var(--accent-glow) !important; }
+   .text-success { color: var(--accent-success) !important; }
+   .text-danger { color: var(--accent-danger) !important; }
+   .text-warning { color: var(--accent-warning) !important; }
+   .text-info { color: var(--accent-cyan) !important; }
+   
+   /* ---- LAYOUT ---- */
+   .container-fluid { padding: 1.5rem 2rem; max-width: 1400px; margin: 0 auto; }
+   .container-fluid.bg-light { background: transparent !important; min-height: calc(100vh - 60px); }
+   
+   /* Center content within bootstrap rows */
+   .row { justify-content: center; }
+   .container { max-width: 1200px; margin: 0 auto; }
+   .container-fluid > h1 { text-align: center; margin-bottom: 1.5rem; }
+   .container-fluid > .row { max-width: 1200px; margin-left: auto; margin-right: auto; }
+   
+   /* ---- FOCUS ---- */
+   *:focus-visible {
+     outline: 2px solid var(--accent-primary);
+     outline-offset: 2px;
+     border-radius: 4px;
+   }
+   
+   /* ---- REDUCED MOTION ---- */
+   @media (prefers-reduced-motion: reduce) {
+     *, *::before, *::after {
+       animation-duration: 0.01ms !important;
+       transition-duration: 0.01ms !important;
+     }
+   }
+   
+   /* ---- RESPONSIVE ---- */
+   @media (max-width: 768px) {
+     .container-fluid { padding: 1rem; }
+   }
+   @media (max-width: 576px) {
+     h1 { font-size: 1.5rem; }
+     h2 { font-size: 1.3rem; }
+   }

@@ -1,0 +1,33 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "percentage_chance" : 15,
+    "repeatable" : false,
+    "decision" : {
+        "title" : "[NAME] - Check my PR?",
+        "body" : "[NAME]: Ok so I did all the work! Please check my code!"
+    },
+    "requirements" : {
+        "is_working_task" : true,
+        "stat_require" : [
+            { "stat" : "communication_skills", "operator" : "<", "value" : 50, "character_pk" : "*a" }
+        ]
+    },
+    "options" : [
+        {
+            "text" : "That's not even remotely what we asked for.",
+            "create_tasks" : [
+                {
+                    "task_type" : 1, 
+                    "name" : "Rewrite Incorrect Implementation",
+                    "time_to_complete": 3,
+                    "unlocks_at_percent":0,
+                    "number_of_people_required":2,
+                    "energy_cost": 6,
+                    "difficulty": 2
+                }
+            ],
+            "score_effect": -15
+        }
+    ]
+}

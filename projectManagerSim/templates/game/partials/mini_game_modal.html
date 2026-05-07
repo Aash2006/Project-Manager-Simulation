@@ -1,0 +1,35 @@
+<div class="modal fade" id="miniGameModal" tabindex="-1" aria-labelledby="miniGameModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="miniGameModalLabel">Mini game</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body" style="color: #ffffff !important;">
+        <div class="minigame-meta">
+          <div class="minigame-timer" id="miniGameTimerWrapper">
+            Time left: <span id="miniGameTimer">30</span>s
+          </div>
+          <div class="minigame-note">One attempt only.</div>
+        </div>
+
+        <div class="minigame-bug-preview">
+          <div class="minigame-bug-label" id="miniGameImpactLabel">
+            Bug impact on failure: <strong>+10%</strong>
+          </div>
+          <div class="progress" style="height: 10px;">
+            <div id="miniBugPreviewFill" class="progress-bar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div id="mini-game-body" style="color: #ffffff !important;"></div>
+        <div id="mini-game-feedback" class="mt-3"></div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

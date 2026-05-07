@@ -1,0 +1,9 @@
+{% extends 'base_list.html' %}
+
+{% block headers %}
+    <th>Task type</th>
+{% endblock %}
+
+{% block row %}
+    <td>{{ object.task_type_name }}</td>
+{% endblock %}

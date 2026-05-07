@@ -1,0 +1,26 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "percentage_chance" : 3,
+    "decision" : {
+        "title" : "Supervisor - [NAME] hard work",
+        "body" : "Supervisor: [NAME]'s been working harder than usual lately."
+    },
+    "requirements" : {
+        "is_working_task" : true
+    },
+    "options" : [
+        {
+            "text" : "That's how they should be working.",
+            "happiness_effect" : 1.05,
+            "score_effect": 5
+        },
+        {
+            "text" : "Yeah, I'll thank them for their dedication",
+            "confidence_effect" : 1.25,
+            "reliability_effect" : 1.10,
+            "happiness_effect" : 1.15,
+            "score_effect": 15
+        }
+    ]
+}

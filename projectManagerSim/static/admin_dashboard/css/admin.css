@@ -1,0 +1,298 @@
+/* ---- ADMIN LAYOUT ---- */
+
+.admin-body {
+  background: var(--bg-deep);
+  margin: 0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-primary);
+}
+
+/* ---- TOP NAV ---- */
+.admin-topnav {
+  background: rgba(15, 12, 29, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.75rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.admin-nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.brand-text {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  margin-right: 0.5rem;
+}
+.brand-text:hover {
+  color: var(--accent-glow);
+  text-decoration: none;
+}
+
+.admin-nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+  flex-grow: 1;
+}
+
+.admin-nav-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-left: 1px solid var(--border-subtle);
+  padding-left: 1.25rem;
+  margin-left: auto;
+}
+
+.admin-nav-link {
+  color: var(--text-secondary);
+  padding: 0.4rem 0.75rem;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.admin-nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(139, 92, 246, 0.08);
+  text-decoration: none;
+}
+.admin-nav-link.active {
+  color: var(--accent-glow);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+/* ---- MAIN CONTENT ---- */
+.admin-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.welcome-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.4px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ---- STATS GRID ---- */
+.stats-grid,
+.stats_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ---- STAT CARDS ---- */
+.stat-card {
+  background: transparent;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.06), inset 0 0 20px rgba(124, 58, 237, 0.02);
+  transition: var(--transition);
+}
+.stat-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.1);
+}
+
+.circle-chart {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.stat-info .label {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+.stat-info .value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+/* ---- PANELS ---- */
+.panel {
+  background: transparent;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.06), inset 0 0 20px rgba(124, 58, 237, 0.02);
+  margin-bottom: 1.25rem;
+}
+
+.panel-title {
+  font-weight: 700;
+  margin: 0 0 0.35rem 0;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.panel-subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* ---- TABLE CARD ---- */
+.table-card {
+  background: transparent;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.06), inset 0 0 20px rgba(124, 58, 237, 0.02);
+  margin-bottom: 1.25rem;
+}
+
+/* ---- ADMIN BUTTONS ---- */
+.btn-primary-custom {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-glow));
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35);
+  transition: var(--transition);
+}
+.btn-primary-custom:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+  color: white;
+}
+
+.btn-secondary-custom {
+  background: transparent;
+  border: 1.5px solid var(--border-subtle);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+.btn-secondary-custom:hover {
+  background: rgba(139, 92, 246, 0.08);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+/* ---- FORM INPUTS ---- */
+.form-control {
+  background: rgba(15, 12, 29, 0.6) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-sm) !important;
+  color: var(--text-primary) !important;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+}
+.form-control:focus {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
+  background: rgba(15, 12, 29, 0.8) !important;
+  outline: none;
+}
+.form-control::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* ---- TABLE OVERRIDES (Bootstrap 5.3 CSS-variable reset) ---- */
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--text-secondary);
+  --bs-table-border-color: var(--border-subtle);
+  --bs-table-striped-bg: rgba(139, 92, 246, 0.03);
+  --bs-table-hover-bg: rgba(139, 92, 246, 0.06);
+  --bs-table-hover-color: var(--text-primary);
+  color: var(--text-secondary) !important;
+  border-color: var(--border-subtle) !important;
+}
+.table thead tr {
+  border-bottom: 1px solid var(--border-subtle) !important;
+}
+.table > :not(caption) > * > * {
+  background-color: transparent !important;
+  color: inherit;
+  border-bottom-color: var(--border-subtle) !important;
+}
+
+/* ---- TEAM CELL ---- */
+.team-cell ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.team-cell li {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 0.1rem 0;
+}
+
+/* ---- RECENT SAVES TABLE ---- */
+.recent-saves-table {
+  margin-top: 1rem;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .admin-content { padding: 1.25rem 1rem; }
+  .admin-topnav { padding: 0.75rem 1rem; }
+}

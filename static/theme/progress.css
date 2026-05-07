@@ -1,0 +1,66 @@
+    /* Work/Life Balance bar - BRIGHT VIVID COLORS */
+    .progress .progress-bar.wlb-bar.very_low    { 
+      background: linear-gradient(90deg, #f87171, #ef4444) !important; 
+      box-shadow: 0 0 12px rgb(239, 68, 68) !important; 
+    }
+    .progress .progress-bar.wlb-bar.low         { 
+      background: linear-gradient(90deg, #fb923c, #f97316) !important; 
+      box-shadow: 0 0 12px rgb(249, 116, 22) !important; 
+    }
+    .progress .progress-bar.wlb-bar.medium      { 
+      background: linear-gradient(90deg, #fbbf24, #f59e0b) !important; 
+      box-shadow: 0 0 12px rgb(251, 190, 36) !important; 
+    }
+    .progress .progress-bar.wlb-bar.good        { 
+      background: linear-gradient(90deg, #34d399, #10b981) !important; 
+      box-shadow: 0 0 12px rgb(52, 211, 153) !important; 
+    }
+    .progress .progress-bar.wlb-bar.excellent   { 
+      background: linear-gradient(90deg, #6ee7b7, #34d399) !important; 
+      box-shadow: 0 0 16px rgb(110, 231, 183) !important; 
+    }
+.progress {
+    background: rgba(255,255,255,0.05) !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+  }
+  .progress-bar {
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-glow)) !important;
+    border-radius: 10px;
+    transition: width 0.6s ease;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.25);
+  }
+  .progress-bar.bg-success {
+    background: linear-gradient(90deg, var(--accent-success), #059669) !important;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.25);
+  }
+  .progress-bar.bg-danger {
+    background: linear-gradient(90deg, var(--accent-danger), #dc2626) !important;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.25);
+  }
+  
+  .energy-bar.critical { background: linear-gradient(90deg, #ef4444, #dc2626) !important; box-shadow: 0 0 8px rgba(239,68,68,0.3); }
+  .energy-bar.low      { background: linear-gradient(90deg, #f59e0b, #d97706) !important; box-shadow: 0 0 8px rgba(245,158,11,0.3); }
+  .energy-bar.medium   { background: linear-gradient(90deg, #eab308, #ca8a04) !important; }
+  .energy-bar.high     { background: linear-gradient(90deg, #10b981, #059669) !important; box-shadow: 0 0 8px rgba(16,185,129,0.3); }
+  .energy-bar.very_high { background: linear-gradient(90deg, #10b981, #34d399) !important; box-shadow: 0 0 10px rgba(16,185,129,0.4); }
+  
+  .happiness-bar.very_unhappy { background: linear-gradient(90deg, #ef4444, #dc2626) !important; }
+  .happiness-bar.unhappy      { background: linear-gradient(90deg, #f59e0b, #d97706) !important; }
+  .happiness-bar.neutral      { background: linear-gradient(90deg, #eab308, #ca8a04) !important; }
+  .happiness-bar.happy        { background: linear-gradient(90deg, #10b981, #059669) !important; }
+  .happiness-bar.very_happy   { background: linear-gradient(90deg, #10b981, #34d399) !important; box-shadow: 0 0 8px rgba(16,185,129,0.3); }
+  
+  .badge {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+  .bg-primary { background: var(--accent-primary) !important; }
+  .bg-success { background: var(--accent-success) !important; }
+  .bg-danger  { background: var(--accent-danger) !important; }
+  .bg-warning { background: var(--accent-warning) !important; color: #1a1535 !important; }
+  .bg-secondary { background: rgba(139, 92, 246, 0.15) !important; color: var(--text-secondary) !important; }
+

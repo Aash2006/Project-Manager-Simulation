@@ -1,0 +1,74 @@
+[
+    {
+    "model": "projectManagerSim.tasktype",
+    "pk": 1,
+    "fields": {
+        "task_type_name": "UI Design",
+        "required_role": "designer"
+        }
+    },
+    {
+    "model": "projectManagerSim.tasktype",
+    "pk": 2,
+    "fields": {
+        "task_type_name": "Feature Development",
+        "required_role": "fullstack"
+        }
+    },
+    {
+    "model": "projectManagerSim.tasktype",
+    "pk": 3,
+    "fields": {
+        "task_type_name": "Frontend Development",
+        "required_role": "frontend"
+        }
+    },
+    {
+    "model": "projectManagerSim.tasktype",
+    "pk": 4,
+    "fields": {
+        "task_type_name": "Backend Development",
+        "required_role": "backend"
+        }
+    },
+    {
+    "model": "projectManagerSim.tasktype",
+    "pk": 5,
+    "fields": {
+        "task_type_name": "Testing",
+        "required_role": "tester"
+        }
+    },
+    {
+    "model": "projectManagerSim.tasktype",
+    "pk": 6,
+    "fields": {
+        "task_type_name": "Debugging",
+        "required_role": "tester"
+        }
+    },
+    {
+    "model": "projectManagerSim.tasktype",
+    "pk": 7,
+    "fields": {
+        "task_type_name": "Maintenence",
+        "required_role": "backend"
+        }
+    },
+    {
+    "model": "projectManagerSim.tasktype",
+    "pk": 8,
+    "fields": {
+        "task_type_name": "DevOps",
+        "required_role": "backend"
+        }
+    },
+    {
+    "model": "projectManagerSim.tasktype",
+    "pk": 9,
+    "fields": {
+        "task_type_name": "Security",
+        "required_role": "backend"
+        }
+    }
+]

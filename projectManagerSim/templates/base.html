@@ -1,0 +1,148 @@
+<!-- Don't extend from this file!! extend base_body.html or navbar will configure weird! -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
+    <link href="{% static 'theme/base.css' %}" rel="stylesheet" />
+    <link href="{% static 'theme/navbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'theme/cards.css' %}" rel="stylesheet" />
+    <link href="{% static 'theme/buttons.css' %}" rel="stylesheet" />
+    <link href="{% static 'theme/forms.css' %}" rel="stylesheet" />
+    <link href="{% static 'theme/progress.css' %}" rel="stylesheet" />
+    <link href="{% static 'theme/modals.css' %}" rel="stylesheet" />
+    <link href="{% static 'theme/data.css' %}" rel="stylesheet" />
+    <link href="{% static 'theme/animations.css' %}" rel="stylesheet" />
+    <link href="{% static 'theme/dashboard.css' %}" rel="stylesheet" />
+    <link href="{% static 'theme/pages.css' %}" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    {% comment %}<link rel="stylesheet" href="{% static 'extra.css' %}">{% endcomment %}
+    <link href="{% static 'gameplay_dashboard/js/game_partials.js' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js/dist/css/shepherd.css"/>
+    <link rel="stylesheet" href="{% static 'gameplay_dashboard/css/game_tutorial.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js/dist/js/shepherd.min.js"></script>
+    <script src="{% static 'gameplay_dashboard/js/tour.js' %}"></script>
+    <title>{% block title %}{% endblock %}</title>
+    {% block extra_css %}
+    {% endblock %}
+
+    <style>
+      #page-loader {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.01);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        transition: opacity 0.9s ease;
+      }
+
+      #page-loader.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #page-loader .loader-title {
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        opacity: 0.8;
+      }
+
+      #page-loader img {
+        width: 120px;
+        height: 120px;
+        animation: spin 1.5s linear infinite;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body data-tour-step="{{ tour_step|default:'' }}">
+
+    <!-- Page loader overlay -->
+    <div id="page-loader">
+      <img src="{% static 'img/loader.png' %}" alt="Loading...">
+      <div class="loader-title">Project Manager</div>
+    </div>
+
+    <!-- Script for importing CSRF Token helper -->
+    <script>
+      function getCSRFToken() {
+        const name = 'csrftoken='
+        const cookies = document.cookie.split(';')
+      
+        for (let c of cookies) {
+          c = c.trim()
+          if (c.startsWith(name)) {
+            return c.substring(name.length)
+          }
+        }
+        return null
+      }
+      
+      window.CSRF_TOKEN = getCSRFToken()
+      console.log('CSRF token:', window.CSRF_TOKEN)
+    </script>
+
+    <!-- Script for setting Django endpoints to use in separate js files -->
+    {% if save %}
+    <script>
+      window.ENDPOINTS = {
+        toggleResting: "{% url 'toggle_resting' %}",
+        removeTask: "{% url 'remove_task' %}",
+        assignTask: "{% url 'assign_task' %}",
+        getTask: "{% url 'get_task' %}",
+        startDay: "{% url 'start_day' %}",
+        savePrecheck: "{% url 'save_precheck' save.id %}",
+        processDecision: "{% url 'process_decision' %}",
+        gameEnd: "{% url 'game_end' %}"
+      }
+    </script>
+    {% endif %}
+
+    <!-- All content starts here -->
+    {% include "partials/__navbar.html" %}
+
+    {% block body %}
+    {% endblock %}
+
+    <!-- Bootstrap scripts that must be after body -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js" integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u" crossorigin="anonymous"></script>
+    
+    <script src="{% static 'extra.js' %}"></script>
+
+    <!-- Initialize Bootstrap tooltips -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize all tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+      });
+    </script>
+
+    <!-- Page loader dismiss -->
+    <script>
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('page-loader');
+        loader.classList.add('fade-out');
+        setTimeout(() => loader.remove(), 500);
+      });
+    </script>
+   <script>
+    window.SAVE_ID = {{ save.id|default:'null' }};
+  </script>
+  </body>
+</html>

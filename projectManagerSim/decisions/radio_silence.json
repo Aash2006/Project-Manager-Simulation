@@ -1,0 +1,28 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : 10,
+    "percentage_chance" : 5,
+    "decision" : {
+        "title" : "[NAME] - Radio Silence",
+        "body" : "You haven't heard anything from [NAME] in a few days."
+    },
+    "deadline" : 2,
+    "requirements" : {
+        "day_requirement" : 4
+    },
+    "options" : [
+        {
+            "text" : "Chase him up.",
+            "score_effect": 10,
+            "reliability_effect": 1.08,
+            "happiness_effect": 0.88,
+            "stress_effect": 1.12,
+            "irritability_effect": 1.12
+        },
+        {
+            "text" : "Leave it.",
+            "score_effect": -10,
+            "reliability_effect": 0.75
+        }
+    ]
+}

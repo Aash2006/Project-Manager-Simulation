@@ -1,0 +1,20 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "repeatable" : false,
+    "decision" : {
+        "title" : "Supervisor - [NAME] Irritability",
+        "body" : "Supervisor: I've been reading through the minutes, and [NAME] seems more irritable."
+    },
+    "requirements" : {
+        "stat_require" : [
+            { "stat" : "irritability", "operator" : ">", "value" : 150, "character_pk" : "*a" }
+        ]
+    },
+    "options" : [
+        {
+            "text" : "Noted.",
+            "score_effect": 0
+        }
+    ]
+}

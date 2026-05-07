@@ -1,0 +1,27 @@
+
+
+   @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+  }
+  
+  @keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .energy-low { animation: pulse 2s infinite; }
+  .shake { animation: shake 0.3s ease-in-out; }
+  .energy-flash { animation: pulse 0.3s ease-in-out; }
+  .fade-in { animation: fadeIn 0.3s ease-out; }

@@ -1,0 +1,33 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "percentage_chance" : 10,
+    "repeatable" : true,
+    "decision" : {
+        "title" : "[NAME] - Too Fast to Test",
+        "body" : "[NAME]: I finished and merged in my stuff! Don't worry about the tests, my shit works."
+    },
+    "requirements" : {
+        "is_working_task" : true,
+        "stat_require" : [
+            { "stat" : "confidence", "operator" : ">", "value" : 200, "character_pk" : "*a" }
+        ]
+    },
+    "options" : [
+        {
+            "text" : "We still need tests!",
+            "create_tasks" : [
+                {
+                    "task_type" : 5, 
+                    "name" : "Write Missing Tests",
+                    "time_to_complete": 2,
+                    "unlocks_at_percent":0,
+                    "number_of_people_required":1,
+                    "energy_cost": 5,
+                    "difficulty": 1
+                }
+            ],
+            "score_effect": -5
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "decision_type": "CHARACTER",
+    "character_pk": 1,
+    "percentage_chance": 25,
+    "decision": {
+        "title": "Bella - Just Here for the Grade",
+        "body": "Bella: Look, I'll be real with you. I don't care about this project beyond passing. Tell me exactly what you need from me and I'll do it. But I'm not putting in extra."
+    },
+    "repeatable": false,
+    "deadline": 2,
+    "related_name": "bella_bare_minimum",
+    "options": [
+        {
+            "text": "Fair enough. I'll give you something specific.",
+            "score_effect": 0,
+            "reliability_effect": 1.1,
+            "happiness_effect": 1.08,
+            "energy_effect": 1.05
+        },
+        {
+            "text": "That attitude is going to hurt everyone's grade.",
+            "score_effect": -1,
+            "happiness_effect": 0.82,
+            "irritability_effect": 1.35,
+            "stress_effect": 1.15,
+            "reliability_effect": 0.88
+        },
+        {
+            "text": "Is everything okay outside of uni?",
+            "score_effect": 1,
+            "happiness_effect": 1.12,
+            "stress_effect": 0.88,
+            "irritability_effect": 0.9,
+            "confidence_effect": 1.05
+        }
+    ]
+}

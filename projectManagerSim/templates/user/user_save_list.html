@@ -1,0 +1,32 @@
+{% extends 'base_body.html' %}
+
+<!--Add option to search through all active and completed games? A user could
+rack up quite a few-->
+
+{% block title %} All Playthroughs {% endblock %}
+{% block page_body %}
+<div class="row g-0 pt-3">
+    <div class="col"><h2>Ongoing</h2></div>
+</div>
+<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2">
+    {% for save in ongoing_saves %}
+        <div class="col">
+            {% include "partials/save_card.html" with save=save %}
+        </div>
+    {% endfor %}
+</div>
+
+<div class="row g-0 pt-3">
+    <div class="col"><h2>Completed</h2></div>
+</div>
+<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2">
+      {% for save in completed_saves %}
+        <div class="col">
+            {% include "partials/save_card.html" with save=save %}
+        </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}

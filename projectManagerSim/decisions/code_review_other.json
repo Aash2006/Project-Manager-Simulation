@@ -1,0 +1,28 @@
+{
+    "decision_type" : "CHARACTER_RELATION",
+    "character_pk" : "*a",
+    "character_pk_2" : "?b",
+    "percentage_chance" : 30,
+    "decision" : {
+        "title" : "[NAME] & [NAME2] - Brutal Review",
+        "body" : "[NAME2]: I don't care what issues my code had, [NAME] was way too harsh. I'm not doing them."
+    },
+    "options" : [
+        {
+            "text" : "You're right, they should be more professional.",
+            "relation_change" : 5,
+            "irritability_effect" : 1.2,
+            "communication_skills_effect" : 1.1,
+            "confidence_effect_2" : 1.1,
+            "score_effect": 5
+        },
+        {
+            "text" : "It's not that deep.",
+            "relation_change" : -20,
+            "confidence_effect_2" : 0.8,
+            "irritability_effect_2" : 1.4,
+            "reliability_effect_2" : 0.9,
+            "score_effect": -10
+        }
+    ]
+}

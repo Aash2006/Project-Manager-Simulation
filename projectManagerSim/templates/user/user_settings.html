@@ -1,0 +1,81 @@
+{% extends 'base_body.html' %}
+
+{% block title %} Settings {% endblock %}
+
+{% block page_body %}
+
+<!-- Header -->
+
+<div class="d-flex align-items-center justify-content-between mb-4">
+    <div>
+        <h2 class="mb-0 fw-semibold">Settings</h2>
+        <small class="text-muted">Manage your account details</small>
+    </div>
+    <a class="btn btn-outline-secondary btn-sm" href="{% url 'user_dashboard' %}">
+        ← Back
+    </a>
+</div>
+
+<!-- Content -->
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+
+<!-- Change Password -->
+<div class="col d-flex">
+    <div class="card border-0 shadow-sm p-4 w-100">
+
+        <div class="mb-3">
+            <h5 class="fw-semibold mb-1">Change Password</h5>
+            <p class="text-muted small mb-0">
+                Update your password to keep your account secure.
+            </p>
+        </div>
+
+        <form action="{% url 'user_settings' %}" method="post" class="d-flex flex-column h-100">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                {% include 'partials/bootstrap_form.html' with form=form %}
+            </div>
+
+            <div class="mt-auto d-flex justify-content-end">
+                <button type="submit" name="change_password" class="btn btn-primary btn-sm px-4">
+                    Update Password
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<!-- Change Email -->
+<div class="col d-flex">
+    <div class="card border-0 shadow-sm p-4 w-100">
+
+        <div class="mb-3">
+            <h5 class="fw-semibold mb-1">Change Email</h5>
+            <p class="text-muted small mb-0">
+                Update the email linked to your account.
+            </p>
+        </div>
+
+        <form action="{% url 'user_settings' %}" method="post" class="d-flex flex-column h-100" novalidate>
+            {% csrf_token %}
+
+            <div class="mb-3">
+                {% include 'partials/bootstrap_form.html' with form=email_form %}
+            </div>
+
+            <div class="mt-auto d-flex justify-content-end">
+                <button type="submit" name="change_email" class="btn btn-primary btn-sm px-4">
+                    Update Email
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

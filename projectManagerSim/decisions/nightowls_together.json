@@ -1,0 +1,29 @@
+{
+    "decision_type" : "CHARACTER_RELATION",
+    "character_pk" : 10,
+    "character_pk_2" : 2,
+    "decision" : {
+        "title" : "James & Lilly - Midnight Inspiration",
+        "body" : "James: I just had a crazy idea for the data visualization while I was at the gym. If me and Lilly stay up until dawn, we can make it look incredible.\n"
+    },
+    "options" : [
+        {
+            "text" : "Absolutely not. Go to sleep, both of you.",
+            "relation_change" : -5,
+            "happiness_effect" : 0.9,
+            "happiness_effect_2" : 0.9,
+            "energy_effect" : 1.4,
+            "energy_effect_2" : 1.4,
+            "score_effect": -5
+        },
+        {
+            "text" : "Sure.",
+            "relation_change" : 20,
+            "energy_effect" : 0.5,
+            "energy_effect_2" : 0.5,
+            "skill_level_effect" : 1.1,
+            "skill_level_effect_2" : 1.1,
+            "score_effect": 20
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+    "decision_type": "CHARACTER",
+    "character_pk": 9,
+    "percentage_chance": 25,
+    "decision": {
+        "title": "Victor - Took Credit in the Demo",
+        "body": "Victor: Listen, I did totally do most of that, so it's fine for me to take credit in the demo. If you have a problem with that just do more work."
+    },
+    "repeatable": false,
+    "deadline": 2,
+    "related_name": "victor_credit_grab",
+    "options": [
+        {
+            "text": "Sure, the tutor was impressed anyways.",
+            "score_effect": 2,
+            "happiness_effect": 1.1,
+            "confidence_effect": 1.15,
+            "reliability_effect": 0.75
+        },
+        {
+            "text": "Attribution matters for the grade.",
+            "score_effect": 1,
+            "happiness_effect": 0.88,
+            "confidence_effect": 0.85,
+            "irritability_effect": 1.2,
+            "reliability_effect": 0.9
+        },
+        {
+            "text": "I'm correcting it on the report.",
+            "score_effect": 0,
+            "happiness_effect": 0.75,
+            "confidence_effect": 0.72,
+            "stress_effect": 1.2,
+            "irritability_effect": 1.4
+        }
+    ]
+}

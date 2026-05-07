@@ -1,0 +1,74 @@
+{% extends 'admin_base.html' %}
+{% block title %}
+  Saves Spreadsheet
+{% endblock %}
+
+{% block page_body %}
+  <div class="mb-3">
+    <h1 class="h4 mb-1">Saves Spreadsheet</h1>
+    <div class="text-muted">One row per save (user + progress + team state)</div>
+  </div>
+
+  <div class="table-card mb-3">
+    <form method="get" class="d-flex gap-2">
+      <input class="form-control" type="text" name="q" placeholder="Search username or save..." value="{{ q }}" />
+      <button class="btn btn-danger" type="submit">Search</button>
+      {% if q %}
+        <a class="btn btn-outline-secondary" href="?">Clear</a>
+      {% endif %}
+    </form>
+  </div>
+
+  <div class="table-card">
+    <div class="table-responsive">
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Save</th>
+            <th>Status</th>
+            <th>Days</th>
+            <th>Progress %</th>
+            <th>Team Size</th>
+            <th>Team State</th>
+            <th>Last Used</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for save in saves %}
+            {% with team=save.characters.all %}
+              <tr>
+                <td>{{ save.user.username }}</td>
+                <td>{% if save.save_name %}{{ save.save_name }}{% else %}#{{ save.id }}{% endif %}</td>
+                <td>{{ save.status }}</td>
+                <td>{{ save.current_day }} / {{ save.total_days }}</td>
+                <td>{{ save.progress_percent }}</td>
+                <td>{{ team|length }}</td>
+                <td class="team-cell">
+                  {% if team %}
+                    <ul>
+                      {% for sc in team %}
+                        {% include "admin/partials/team_member_line.html" %}
+                      {% endfor %}
+                    </ul>
+                  {% else %}
+                    <span class="text-muted">No team members</span>
+                  {% endif %}
+                </td>
+                <td>{{ save.last_used }}</td>
+              </tr>
+            {% endwith %}
+          {% empty %}
+            <tr>
+              <td colspan="8" class="text-muted">No results</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-2">
+            <a href="{% url 'admin_statistics' %}" class="btn btn-outline-primary w-100">Back</a>
+        </div>
+{% endblock %}

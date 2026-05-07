@@ -1,0 +1,40 @@
+[
+    {
+    "model": "projectManagerSim.characterscenario",
+    "pk": 10,
+    "fields": {
+        "character": 1,
+        "type" : "SUPERVISOR_NOTICE",
+        "text": "Bella did not show up for the team meeting. Check in on her please!"
+        }
+    },
+
+    {
+    "model": "projectManagerSim.decision",
+    "pk": 10,
+    "fields": {
+        "game_save" : [],
+        "title": "Action",
+        "body": "What would you like to say?"
+        }
+    },
+
+    {
+    "model": "projectManagerSim.characterscenariooption",
+    "pk": 901,
+    "fields": {
+        "decision": 90,
+        "text": "\"Slacking this early is a bad look.\"",
+        "score_effect": -1
+        }
+    },
+    {
+    "model": "projectManagerSim.characterscenariooption",
+    "pk": 902,
+    "fields": {
+        "decision": 90,
+        "text": "\"I noticed you missed the meeting deadline. Is everything alright?\"",
+        "score_effect": 1
+        }
+    }
+]

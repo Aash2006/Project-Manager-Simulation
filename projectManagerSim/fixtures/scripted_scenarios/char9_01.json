@@ -1,0 +1,62 @@
+[
+    {
+    "model": "projectManagerSim.characterscenario",
+    "pk": 90,
+    "fields": {
+        "character": 9,
+        "type" : "SUPERVISOR_NOTICE",
+        "text": "Bella has missed the given deadline for her task! Check in with her please!"
+        }
+    },
+
+    {
+    "model": "projectManagerSim.decision",
+    "pk": 90,
+    "fields": {
+        "game_save" : [],
+        "title": "Send a Message",
+        "body": "What would you like to say?"
+        }
+    },
+
+    {
+    "model": "projectManagerSim.characterscenariooption",
+    "pk": 901,
+    "fields": {
+        "decision": 90,
+        "text": "\"You're late so I'm going to have to give your task to someone else.\"",
+        "score_effect": -1,
+        "happiness_effect": -5,
+        "energy_effect": -5,
+        "communication_skills_effect": -5,
+        "reliability_effect" : -5,
+        "rapport_effect": -5
+        }
+    },
+    {
+    "model": "projectManagerSim.characterscenariooption",
+    "pk": 902,
+    "fields": {
+        "decision": 90,
+        "text": "\"I noticed you missed your deadline. Is there anything you need a hand with?\"",
+        "score_effect": 1,
+        "happiness_effect": 5,
+        "energy_effect": 5,
+        "communication_skills_effect": 5,
+        "reliability_effect" : 5,
+        "rapport_effect": 5
+        }
+    },
+    {
+    "model": "projectManagerSim.characterscenariooption",
+    "pk": 903,
+    "fields": {
+        "decision": 90,
+        "text": "Give her more time.",
+        "happiness_effect": 3,
+        "communication_skills_effect" : -2,
+        "reliability_effect" : -1
+        }
+    }
+
+]

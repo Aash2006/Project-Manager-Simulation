@@ -1,0 +1,36 @@
+{
+    "decision_type" : "CHARACTER_RELATION",
+    "character_pk" : 4,
+    "character_pk_2" : "?b",
+    "decision" : {
+        "title" : "Bruce - Quality Confrontation",
+        "body" : "Bruce: I just looked at [NAME2]'s work and it's a damn disaster."
+    },
+    "options" : [
+        {
+            "text" : "Bruce, calm down. It's fine for a college project.",
+            "relation_change" : 10,
+            "irritability_effect" : 1.4,
+            "happiness_effect_2" : 1.1,
+            "score_effect": -5
+        },
+        {
+            "text" : "You're right, Bruce. Let's rewrite that module.",
+            "relation_change" : -30,
+            "irritability_effect" : 0.8,
+            "confidence_effect_2" : 0.6,
+            "create_tasks" : [
+                {
+                    "task_type" : 7, 
+                    "name" : "Emergency Quality Rewrite",
+                    "time_to_complete": 3,
+                    "unlocks_at_percent":0,
+                    "number_of_people_required":1,
+                    "energy_cost": 6,
+                    "difficulty": 2
+                }
+            ],
+            "score_effect": 50
+        }
+    ]
+}

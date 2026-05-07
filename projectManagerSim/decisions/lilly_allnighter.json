@@ -1,0 +1,47 @@
+{
+    "decision_type": "CHARACTER",
+    "character_pk": 2,
+    "percentage_chance": 30,
+    "decision": {
+        "title": "Lilly - Pulled Another All-Nighter",
+        "body": "Lilly looks awful. She's been in the labs since 5am and the commit log shows she was pushing code at 2am. She's still going, insisting she's fine and that the others aren't pulling their weight."
+    },
+    "deadline": 1,
+    "related_name": "lilly_all_nighter",
+    "requirements": {
+        "stat_require": [
+            {
+                "stat": "energy",
+                "operator": "<",
+                "value": 70,
+                "character_pk": 2
+            }
+        ]
+    },
+    "options": [
+        {
+            "text": "Tell her to go home and sleep.",
+            "score_effect": 1,
+            "energy_effect": 1.35,
+            "stress_effect": 0.75,
+            "happiness_effect": 0.92,
+            "reliability_effect": 0.95,
+            "set_rest": true
+        },
+        {
+            "text": "Let her keep going — more output is more output.",
+            "score_effect": 2,
+            "energy_effect": 0.65,
+            "stress_effect": 1.45,
+            "irritability_effect": 1.3,
+            "happiness_effect": 0.85
+        },
+        {
+            "text": "Make her take a proper break, then come back.",
+            "score_effect": 1,
+            "energy_effect": 1.15,
+            "stress_effect": 0.9,
+            "happiness_effect": 0.96
+        }
+    ]
+}

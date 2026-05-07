@@ -1,0 +1,31 @@
+{
+    "decision_type" : "PROJECT",
+    "decision" : {
+        "title" : "STEM Career Fair",
+        "body" : "A massive career fair is happening in Bush House!"
+    },
+    "percentage_chance" : 35,
+    "requirements" : {
+        "day_requirement" : 15
+    },
+    "options" : [
+        {
+            "text" : "Let everyone go for the afternoon.",
+            "happiness_effect": 1.5,
+            "energy_effect" : 1.5,
+            "irritability_effect" : 0.5,
+            "confidence_effect" : 1.2,
+            "stress_effect" : 0.8,
+            "set_rest" : true,
+            "score_effect": 5
+        },
+        {
+            "text" : "Mandatory lab session. No excuses.",
+            "happiness_effect": 0.6,
+            "irritability_effect" : 1.5,
+            "stress_effect" : 1.2,
+            "reliability_effect" : 1.1,
+            "score_effect": 10
+        }
+    ]
+}

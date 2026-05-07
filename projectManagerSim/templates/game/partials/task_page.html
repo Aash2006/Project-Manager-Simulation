@@ -1,0 +1,66 @@
+<div class="row" id="taskPage">
+    <div class="col-6">
+        <h4>Assigned Tasks 
+            <i class="bi bi-info-circle text-muted info-tooltip" 
+               data-bs-toggle="tooltip" 
+               data-bs-placement="right" 
+               title="This is where the tasks that have been assigned go."></i>
+        </h4>
+        <div class="overflow-auto p-2 w-100 card" style="height: 35vh;">
+            {% for task in tasks %}
+                {% if task.get_assignees %}
+                    {% include 'partials/task_button.html' with task=task%}
+                {% endif %}
+            {% endfor %}
+        </div>
+        </br>
+        <h4>Task Backlog 
+            <i class="bi bi-info-circle text-muted info-tooltip" 
+               data-bs-toggle="tooltip" 
+               data-bs-placement="right" 
+               title="This is where the task backlog is. Click on one of them to assign a task to your teammates."></i>
+        </h4>
+        <div class="overflow-auto p-2 w-100 card" style="height: 35vh;">
+            {% for task in tasks %}
+                {% if task.get_assignees %}
+                {% else %}
+                    {% include 'partials/task_button.html' with task=task%}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div><h3 id="task-name" class="card-header p-4">{{ curr_task.name }}</h3></div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4 id="task-type" class="card-title text-muted">{{ curr_task.task_type }}</h4></li>
+                <li class="list-group-item d-none"><h6 id="task-completed" >Completed: {{ curr_task.is_completed }}</h6></li>
+                <li class="list-group-item"><h6 id="task-requirement"><i class="bi bi-people"></i> {{ curr_task.number_of_people_required }}
+                    {% if curr_task.number_of_people_required == 1%} person{%else%} people{% endif %}
+                </h6></li>
+                <li class="list-group-item"><h6 id="task-duration">
+                    <i class="bi bi-clock"></i>
+                    {% if curr_task.days_worked > 0 %}
+                        {% with total=curr_task.days_left %}
+                            {{ total }} day{{ total|pluralize }}
+                        {% endwith %}
+                    {% else %}
+                        {{ curr_task.time_to_complete }} day{{ curr_task.time_to_complete|pluralize }}
+                    {% endif %}
+                    </h6></li>
+                <li class="list-group-item">
+                    <div id="task-assignees">
+                        {% include 'partials/task_assignees_list.html' with task=curr_task %}
+                    </div>
+                </li>
+                
+            </div>
+            <div class="card-footer text-body-secondary p-3"> 
+            </div>
+        </div>
+        </br>
+        <div id="task-asign-menu" class="w-100">{% include 'partials/task_assign_menu.html' with save_characters=save_characters task=curr_task %}</div>
+    </div>
+</div>

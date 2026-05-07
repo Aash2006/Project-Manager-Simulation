@@ -1,0 +1,45 @@
+<div class="d-flex align-items-center w-100 gap-2">
+  <div class="btn-group flex-grow-1">
+    <button type="button" class="btn btn-outline-secondary w-100 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">
+      Assign
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end w-100">
+      {% for save_character in save_characters %}
+        {% if save_character in task.get_assignees or save_character.lock_task or save_character.lock_rest %}
+        {% else %}
+          <li>
+            <!-- Send save_character.id, NOT character.id -->
+            <button class="dropdown-item assign-task-btn d-flex" type="button" data-task-id="{{ task.id }}" data-save-character-id="{{ save_character.id }}">
+              <table class="table table-borderless">
+                <tbody>
+                  <tr class="align-middle text-center">
+                    <th scope="col" style="width: 33%;">{{ save_character.character.first_name }} {{ save_character.character.last_name }}</th>
+                    <td scope="col" style="width: 33%;">
+                      <div class="text-muted small">
+                        {% if save_character.task_assigned %}
+                          {{save_character.task_assigned.name_short}}
+                        {% else %}
+                          No Task
+                        {% endif %}
+                      </div>
+                    </td>
+                    <td scope="col" style="width: 33%;">
+                      <div class="text-muted small">
+                        Energy: {{save_character.current_energy}}%
+                      </div>
+                    <td>
+                  </tr>
+                </tbody>
+              </table>
+              
+            </button>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  <i class="bi bi-info-circle text-muted info-tooltip" 
+     data-bs-toggle="tooltip" 
+     data-bs-placement="top" 
+     title="Click which teammate you want to assign to this task."></i>
+</div>

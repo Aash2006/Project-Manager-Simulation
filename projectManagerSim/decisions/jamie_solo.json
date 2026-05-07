@@ -1,0 +1,38 @@
+{
+    "decision_type": "CHARACTER",
+    "character_pk": 5,
+    "percentage_chance": 20,
+    "decision": {
+        "title": "Jamie - Just Let Me Do It Myself",
+        "body": "Jamie: Honestly I'd rather just do this section alone. Every time I work with someone I spend more time correcting their code than writing my own. It's faster if you just let me crack on."
+    },
+    "repeatable": false,
+    "deadline": 2,
+    "related_name": "jamie_refuses_help",
+    "options": [
+        {
+            "text": "Fine. Solo it is.",
+            "score_effect": 2,
+            "skill_level_effect": 1.12,
+            "happiness_effect": 1.1,
+            "stress_effect": 0.9,
+            "communication_skills_effect": 0.85
+        },
+        {
+            "text": "No, this is a group project. You work with someone.",
+            "score_effect": -1,
+            "irritability_effect": 1.35,
+            "stress_effect": 1.2,
+            "happiness_effect": 0.82,
+            "communication_skills_effect": 1.08
+        },
+        {
+            "text": "You can lead it, but someone else assists.",
+            "score_effect": 1,
+            "happiness_effect": 0.95,
+            "irritability_effect": 1.1,
+            "communication_skills_effect": 1.05,
+            "skill_level_effect": 1.05
+        }
+    ]
+}

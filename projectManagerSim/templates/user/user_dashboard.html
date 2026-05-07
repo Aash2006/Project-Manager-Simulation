@@ -1,0 +1,31 @@
+{% extends 'base_body.html' %}
+{% load static %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'game_start.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="game-start-container">
+    <div class="game-start-card">
+        <h1 class="game-title">Project Manager Simulator</h1>
+
+        <div class="menu-buttons">
+            <a href="{% url 'game_start' %}" class="btn btn-primary btn-large w-75">
+                <span class="icon">▶</span> Play
+            </a>
+            <a href="{% url 'user_settings' %}" class="btn btn-secondary btn-large w-75">
+                Settings
+            </a>
+        </div>
+
+        <div class="menu-footer">
+            <a href="{% url 'log_out' %}" class="link-secondary">Log Out</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

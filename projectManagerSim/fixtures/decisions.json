@@ -1,0 +1,60 @@
+[
+    {
+    "model": "projectManagerSim.decision",
+    "pk": 1,
+    "fields": {
+        "game_saves" : [],
+        "title": "Message",
+        "body": "Can i skip the meeting? i just cba"
+        }
+    },
+
+    {
+    "model": "projectManagerSim.characterscenariooption",
+    "pk": 11,
+    "fields": {
+        "decision": 90,
+        "text": "Yes",
+        "score_effect": -1
+        }
+    },
+    {
+    "model": "projectManagerSim.characterscenariooption",
+    "pk": 12,
+    "fields": {
+        "decision": 90,
+        "text": "No",
+        "score_effect": 1
+        }
+    },
+
+
+    {
+    "model": "projectManagerSim.decision",
+    "pk": 2,
+    "fields": {
+        "game_saves" : [],
+        "title": "Action",
+        "body": "What would you like to say?"
+        }
+    },
+
+    {
+    "model": "projectManagerSim.characterscenariooption",
+    "pk": 111,
+    "fields": {
+        "decision": 90,
+        "text": "\"Slacking this early is a bad look.\"",
+        "score_effect": -1
+        }
+    },
+    {
+    "model": "projectManagerSim.characterscenariooption",
+    "pk": 112,
+    "fields": {
+        "decision": 90,
+        "text": "\"I noticed you missed the meeting deadline. Is everything alright?\"",
+        "score_effect": 1
+        }
+    }
+]

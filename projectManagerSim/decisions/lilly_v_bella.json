@@ -1,0 +1,27 @@
+{
+    "decision_type" : "CHARACTER_RELATION",
+    "character_pk" : 2,
+    "character_pk_2" : 1,
+    "decision" : {
+        "title" : "Lilly & Bella - Efficiency Clash",
+        "body" : "Lilly: Bella, you can't just leave the CSS like this. It's missing hover states and the padding is inconsistent!\nBella: Works on my machine, we'll get a 2.2 anyways chill."
+    },
+    "options" : [
+        {
+            "text" : "Lilly, stop obsessing.",
+            "relation_change" : -20,
+            "happiness_effect" : 0.7,
+            "happiness_effect_2" : 1.2,
+            "stress_effect" : 1.3,
+            "score_effect": -5
+        },
+        {
+            "text" : "Bella, just fix the padding.",
+            "relation_change" : -15,
+            "reliability_effect_2" : 1.2,
+            "stress_effect_2" : 1.2,
+            "happiness_effect" : 1.1,
+            "score_effect": 10
+        }
+    ]
+}

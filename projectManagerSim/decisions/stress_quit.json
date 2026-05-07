@@ -1,0 +1,22 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "percentage_chance" : 50,
+    "repeatable" : false,
+    "decision" : {
+        "title" : "[NAME] - It's just too much.",
+        "body" : "[NAME]: I can't do this anymore. It's too much for my health."
+    },
+    "requirements" : {
+        "stat_require" : [
+            { "stat" : "stress", "operator" : ">", "value" : 200, "character_pk" : "*a" }
+        ]
+    },
+    "options" : [
+        {
+            "text" : "Come on, stay!",
+            "leave_team": "*a",
+            "score_effect": -200
+        }
+    ]
+}

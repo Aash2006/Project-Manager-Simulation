@@ -1,0 +1,52 @@
+{
+    "decision_type" : "PROJECT",
+    "decision" : {
+        "title" : "Lost Work",
+        "body" : "A significant chunk of work has been lost. No backup. It needs to be dealt with."
+    },
+    "percentage_chance" : 5,
+    "deadline" : 2,
+    "requirements" : {
+        "day_requirement" : 17
+    },
+    "options" : [
+        {
+            "text" : "Say nothing. Maybe no one will notice.",
+            "score_effect": 0,
+            "unlocking_decision" : "lost_work_exposed",
+            "unlocking_day_delay" : 3
+        },
+        {
+            "text" : "Quietly redo it. No need to make a big deal of it.",
+            "score_effect": -20,
+            "create_tasks" : [
+                {
+                    "task_type" : 2,
+                    "name" : "Redo Lost Work",
+                    "time_to_complete": 6,
+                    "unlocks_at_percent": 0,
+                    "number_of_people_required": 1,
+                    "energy_cost": 20,
+                    "difficulty": 8
+                }
+            ]
+        },
+        {
+            "text" : "Tell the team. Everyone needs to pull together on this.",
+            "score_effect": 0,
+            "happiness_effect": 0.88,
+            "stress_effect": 1.25,
+            "create_tasks" : [
+                {
+                    "task_type" : 2,
+                    "name" : "Recover Lost Work",
+                    "time_to_complete": 1,
+                    "unlocks_at_percent": 0,
+                    "number_of_people_required": 4,
+                    "energy_cost": 15,
+                    "difficulty": 2
+                }
+            ]
+        }
+    ]
+}

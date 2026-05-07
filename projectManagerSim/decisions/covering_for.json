@@ -1,0 +1,28 @@
+{
+    "decision_type": "CHARACTER_RELATION",
+    "character_pk": "?a",
+    "character_pk_2": "?b",
+    "percentage_chance": 15,
+    "repeatable": true,
+    "decision": {
+        "title": "[NAME] - Covered for [NAME2]",
+        "body": "[NAME]: [NAME2] was stuck so I finished off their bit. It wasn't a big deal."
+    },
+    "deadline": 2,
+    "options": [
+        {
+            "text": "Try not to make a habit of it.",
+            "score_effect": 0,
+            "happiness_effect": 0.94,
+            "relation_change": 0
+        },
+        {
+            "text": "That was good of you.",
+            "score_effect": 1,
+            "happiness_effect": 1.08,
+            "happiness_effect_2": 1.06,
+            "confidence_effect_2": 1.05,
+            "relation_change": 5
+        }
+    ]
+}

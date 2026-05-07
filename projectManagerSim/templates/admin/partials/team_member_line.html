@@ -1,0 +1,20 @@
+{# Reusable team member line for saves spreadsheet #}
+<li>
+  <strong>
+    {% if sc.character.name %}
+      {{ sc.character.name }}
+    {% else %}
+      {{ sc.character.first_name }} {{ sc.character.last_name }}
+    {% endif %}
+  </strong>
+  — Energy: {{ sc.current_energy }},
+  Happiness: {{ sc.current_happiness }},
+  WLB: {{ sc.character.work_life_balance }},
+  Task:
+  {% if sc.task_assigned %}
+    {{ sc.task_assigned.name }}
+  {% else %}
+    None
+  {% endif %},
+  Time left: {{ sc.time_remaining_on_task }}
+</li>

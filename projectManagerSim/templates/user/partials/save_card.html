@@ -1,0 +1,19 @@
+{% load humanize %}
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ save.name }}</h5>
+    <div class="progress mb-2" style="height: 16px">
+        <div class="progress-bar" style="width: {{ save.progress_percent }}%">{{ save.progress_percent }}%</div>
+    </div>
+    <p class="card-text">
+      Days til deadline: {{ save.current_day }}<br>
+      <small class="text-body-secondary text-muted">last played: {{ save.last_used|naturaltime }}</small>
+  </p>
+    {% if save.status == 'COMPLETED' %}
+        <p class='card-text'>Score: {{ save.score }}
+    {% else %}
+        <a href="#" class="btn btn-primary">Continue game</a>
+    {% endif %}
+  </div>
+</div>

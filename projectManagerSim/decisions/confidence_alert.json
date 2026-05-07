@@ -1,0 +1,20 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "repeatable" : false,
+    "decision" : {
+        "title" : "[NAME] - Unconfident",
+        "body" : "[NAME]: I know you've already checked my PR, but could you triple check for me?"
+    },
+    "requirements" : {
+        "stat_require" : [
+            { "stat" : "confidence", "operator" : "<", "value" : 70, "character_pk" : "*a" }
+        ]
+    },
+    "options" : [
+        {
+            "text" : "...Sure?",
+            "score_effect": 0
+        }
+    ]
+}

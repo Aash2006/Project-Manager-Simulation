@@ -1,0 +1,28 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "percentage_chance" : 15,
+    "repeatable" : false,
+    "decision" : {
+        "title" : "[NAME] - Outburst",
+        "body" : "[NAME]: Your management sucks, you're making everything suck! I can't work like this!"
+    },
+    "requirements" : {
+        "stat_require" : [
+            { "stat" : "irritability", "operator" : ">", "value" : 200, "character_pk" : "*a" }
+        ]
+    },
+    "options" : [
+        {
+            "text" : "You don't know what you're talking about.",
+            "leave_team": "*a",
+            "score_effect": -200
+        },
+        {
+            "text" : "Ok, I promise I'll fix this.",
+            "reliability_effect" : 0.50,
+            "irritability_effect" : 0.70,
+            "score_effect": -20
+        }
+    ]
+}

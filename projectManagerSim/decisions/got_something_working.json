@@ -1,0 +1,26 @@
+{
+    "decision_type": "CHARACTER",
+    "character_pk": "*a",
+    "percentage_chance": 10,
+    "repeatable": true,
+    "decision": {
+        "title": "[NAME] - Got Something Working",
+        "body": "[NAME]: Hey, just so you know - I fixed a bug we didn't notice."
+    },
+    "deadline": 1,
+    "options": [
+        {
+            "text": "Nice one, good work.",
+            "score_effect": 1,
+            "happiness_effect": 1.1,
+            "confidence_effect": 1.08,
+            "energy_effect": 1.05
+        },
+        {
+            "text": "Great, what's next?",
+            "score_effect": 1,
+            "happiness_effect": 0.95,
+            "confidence_effect": 1.02
+        }
+    ]
+}

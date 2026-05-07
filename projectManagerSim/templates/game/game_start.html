@@ -1,0 +1,73 @@
+{% extends 'base_body.html' %}
+{% load static %}
+
+{% block title %}
+    Start
+{% endblock %}
+
+{% block body %}
+<div class="game-start-container">
+        <div class="game-start-card">
+            <h1 class="game-title">Project Manager Simulator</h1>
+
+                {% if game_save %} 
+                <div class="save-info">
+                    <h3>Current Progress</h3>
+                    <div class="row">
+                        <div class="stat-item col-6">
+                            <span class="stat-label">Day</span>
+                            <span class="stat-value">{{ game_save.current_day }}</span>
+                        </div>
+                        <div class="stat-item col-6">
+                            <span class="stat-label">Progress</span>
+                            <span class="stat-value">{{ game_save.progress_percent }}%</span>
+                        </div>
+                    </div>
+                    </br>
+                    <p class="last-played">Last played: {{ game_save.last_used|timesince }} ago</p>
+                </div>
+                
+                <div class="menu-buttons">
+                    <a href="{% url 'game_dashboard' %}" class="btn btn-secondary btn-large w-75 d-block mx-auto">
+                        Continue Game
+                    </a>
+                    <a href="{% url 'game_start_new' %}" class="btn btn-secondary btn-large w-75 d-block mx-auto">
+                        New Game
+                    </a>
+                    <a href="{% url 'previous_saves' %}" class="btn btn-outline-secondary btn-large w-75 d-block mx-auto">
+                        📋 Previous Saves
+                    </a>
+                    <div class="menu-buttons">
+                    <a href="{% url 'user_dashboard' %}" class="btn btn-secondary btn-large w-75 d-block mx-auto">
+                         Back to menu
+                    </a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="no-save-message">
+                    <p>Ready to start your journey as a project manager?</p>
+                </div>
+                
+                <div class="menu-buttons">
+                    <a href="{% url 'game_start_new' %}" class="btn btn-secondary btn-large w-75 d-block mx-auto">
+                        <span class="icon">▶</span> Start New Game
+                    </a>
+                    <a href="{% url 'previous_saves' %}" class="btn btn-outline-secondary btn-large w-75 d-block mx-auto">
+                        📋 Previous Saves
+                    </a>
+                </div>
+
+                <div class="menu-buttons">
+                    <a href="{% url 'user_dashboard' %}" class="btn btn-secondary btn-large w-75 d-block mx-auto">
+                        <span class="icon">▶</span> Back to menu
+                    </a>
+                </div>
+            {% endif %}
+            
+<div class="menu-footer">
+    <a href="{% url 'log_out' %}" class="link-secondary">Log Out</a>
+</div>
+        </div>
+    </div>
+
+{% endblock %}

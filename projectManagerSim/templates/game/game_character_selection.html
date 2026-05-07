@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Select Your Team{% endblock %}
+
+{% block body %}
+{% include "partials/game_tutorial_modal.html"%}
+
+<link rel="stylesheet" href="{% static 'gameplay_dashboard/css/game_character_selection.css' %}">
+<script defer src="{% static 'gameplay_dashboard/js/game_character_selection.js' %}"></script>
+
+<!-- Hidden CSRF token for JS -->
+<form style="display:none;">
+    {% csrf_token %}
+</form>
+
+<div class="character-selection-container">
+
+    {% if existing_save %}
+    <div class="warning-banner">
+        <strong>⚠️ Warning:</strong> You have an existing game in progress 
+        (Day {{ existing_save.current_day }}, {{ existing_save.progress_percent }}% complete).
+        Starting a new game will deactivate your current save.
+    </div>
+    {% endif %}
+
+    <div class="selection-header">
+        <h1>Build Your Team</h1>
+        <p class="subtitle">Choose 4 developers to work on your project</p>
+        <div class="selection-counter">
+            <span id="selected-count">0</span> / 4 selected
+        </div>
+    </div>
+
+    <div id="chemistry-preview" class="chemistry-preview" style="display:none;">
+        <h3>Team Chemistry Analysis</h3>
+        <div id="chemistry-content">
+            <p class="analyzing">Analyzing your team...</p>
+        </div>
+    </div>
+
+    <div class="character-grid">
+        {% for char in characters %}
+        <div class="character-card" data-character-id="{{ char.id }}">
+            <div class="card-header">
+
+                <div class="checkbox-container">
+                    <input
+                        type="checkbox"
+                        class="character-checkbox"
+                        id="char-{{ char.id }}"
+                        value="{{ char.id }}">
+                </div>
+
+                <div class="character-info">
+                    <h3>{{ char.full_name }}</h3>
+                    <p class="role">{{ char.role_display }}</p>
+                </div>
+
+            </div>
+
+            <div class="card-body">
+
+                <p class="description">{{ char.description }}</p>
+
+                <div class="personality-section">
+                    <span class="label">Personality:</span>
+                    <span class="personality-badge">
+                        {{ char.personality_icon }} {{ char.personality_type }}
+                    </span>
+                </div>
+
+                {% if char.traits %}
+                <div class="traits-section">
+                    <span class="label">Traits:</span>
+                    <div class="traits-list">
+                        {% for trait in char.traits %}
+                        <span class="trait-badge">{{ trait }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <div class="traits-section">
+                    <span class="label">Traits:</span>
+                    <span class="no-traits">No special traits</span>
+                </div>
+                {% endif %}
+
+                <div class="wlb-section">
+                    <span class="label">Work-Life Balance:</span>
+
+                    <div class="wlb-bar">
+                        <div class="wlb-fill"
+                             style="width: {{ char.work_life_balance }}%">
+                        </div>
+                    </div>
+
+                    <span class="wlb-value">{{ char.work_life_balance }}%</span>
+                </div>
+
+                <div class="relationships-section">
+
+                    <button class="toggle-relationships"
+                            type="button"
+                            onclick="toggleRelationships({{ char.id }})">
+                        View Relationships ▼
+                    </button>
+
+                    <div class="relationships-list"
+                         id="relationships-{{ char.id }}"
+                         style="display:none;">
+
+                        {% if char.relationships %}
+                            {% for rel in char.relationships %}
+
+                            <div class="relationship-item {{ rel.type }}"
+                                 data-other-char-id="{{ rel.character_id }}">
+
+                                <span class="rel-name">
+                                    {{ rel.character_name }}
+                                </span>
+
+                                <span class="badge {{ rel.badge_class }}">
+                                    {{ rel.icon }} {{ rel.type_display }}
+                                </span>
+
+                            </div>
+
+                            {% endfor %}
+                        {% else %}
+                        <p class="no-relationships">
+                            No defined relationships
+                        </p>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+
+                <label for="char-{{ char.id }}"
+                       class="select-button">
+
+                    <span class="select-text">
+                        Select
+                    </span>
+
+                    <span class="selected-text">
+                        ✓ Selected
+                    </span>
+
+                </label>
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="confirm-section">
+
+        <button id="confirm-team"
+                class="btn btn-primary btn-large"
+                disabled>
+
+            Confirm Team & Start Game
+
+        </button>
+
+        <div class="back-link">
+            <a href="{% url 'game_start' %}">
+                ← Back to Menu
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

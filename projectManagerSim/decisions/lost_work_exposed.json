@@ -1,0 +1,34 @@
+{
+    "decision_type" : "PROJECT",
+    "related_name" : "lost_work_exposed",
+    "is_locked" : true,
+    "decision" : {
+        "title" : "Lost Work - Found Out",
+        "body" : "The missing work has been noticed. The team knows it was never dealt with, and they know you knew."
+    },
+    "deadline" : 1,
+    "requirements" : {
+        "day_requirement" : 0
+    },
+    "options" : [
+        {
+            "text" : "Face the music.",
+            "score_effect": -5,
+            "happiness_effect": 0.72,
+            "stress_effect": 1.4,
+            "reliability_effect": 0.82,
+            "confidence_effect": 0.88,
+            "create_tasks" : [
+                {
+                    "task_type" : 2,
+                    "name" : "Recover Lost Work",
+                    "time_to_complete": 5,
+                    "unlocks_at_percent": 0,
+                    "number_of_people_required": 3,
+                    "energy_cost": 25,
+                    "difficulty": 9
+                }
+            ]
+        }
+    ]
+}

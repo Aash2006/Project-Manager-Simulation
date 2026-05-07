@@ -1,0 +1,13 @@
+{% extends 'base_body.html' %}
+
+{% block title %} Tasks {% endblock %}
+{% block page_header %} Tasks {% endblock %}
+{% block page_body %}
+{% load static %}
+    {% include 'partials/messages.html' %}
+<script src="{% static 'gameplay_dashboard/js/tasks.js' %}"></script>
+<script src="{% static 'gameplay_dashboard/js/gameplay_tasks.js' %}"></script>
+<script src="{% static 'gameplay_dashboard/js/game_tasks.js' %}"></script>
+{% include 'partials/task_page.html' %}
+
+{% endblock %}

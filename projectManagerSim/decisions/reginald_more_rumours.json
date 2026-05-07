@@ -1,0 +1,35 @@
+{
+    "decision_type": "CHARACTER",
+    "character_pk": 6,
+    "percentage_chance": 20,
+    "decision": {
+        "title": "Reginald - Started a Group Chat Drama",
+        "body": "Two people have come to you separately with the same piece of gossip about another group member's contribution. It traces back to Reginald. He was probably trying to help."
+    },
+    "repeatable": false,
+    "deadline": 2,
+    "related_name": "reginald_rumour",
+    "options": [
+        {
+            "text": "Pull him aside and tell him to drop it.",
+            "score_effect": 0,
+            "happiness_effect": 0.92,
+            "stress_effect": 1.1,
+            "communication_skills_effect": 0.92,
+            "reliability_effect": 0.9
+        },
+        {
+            "text": "Leave it, it'll sort itself out.",
+            "score_effect": -1,
+            "happiness_effect": 1.05,
+            "reliability_effect": 0.85
+        },
+        {
+            "text": "Address it with the group without naming anyone.",
+            "score_effect": 1,
+            "stress_effect": 1.05,
+            "reliability_effect": 0.95,
+            "communication_skills_effect": 1.05
+        }
+    ]
+}

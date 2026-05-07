@@ -1,0 +1,149 @@
+.progresscard-wrap {
+  background: transparent !important;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.06), inset 0 0 20px rgba(124, 58, 237, 0.02);
+}
+#progressWrap, #progressWrap.card {
+  background: transparent !important;
+  border: 1.5px solid var(--border-subtle) !important;
+}
+.progresscard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+.progresscard-title {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.progresscard-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-glow);
+}
+.progresscard-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+.progresscard-progress {
+  background: rgba(255,255,255,0.05) !important;
+}
+.progresscard-fill {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-glow)) !important;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.25);
+}
+
+.bugbar-wrap {
+  background: transparent !important;
+  border: 1px solid rgba(239, 68, 68, 0.12);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-top: 0.75rem;
+}
+.bugbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.bugbar-title { font-weight: 600; color: #f87171; font-size: 0.875rem; }
+.bugbar-value { font-size: 1.1rem; font-weight: 700; color: var(--accent-danger); }
+.bugbar-sub { color: var(--text-muted); font-size: 0.8rem; }
+
+#start-day-button {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-glow)) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600 !important;
+  padding: 0.75rem !important;
+  border-radius: var(--radius-md) !important;
+  font-size: 1rem !important;
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35);
+  transition: var(--transition);
+  width: 100%;
+}
+#start-day-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(124, 58, 237, 0.45) !important;
+}
+
+#attention h5 { color: var(--text-primary); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.3rem; }
+#attention p { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.5rem; }
+
+.minigame-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+.minigame-timer { color: var(--accent-danger); font-weight: 600; }
+.minigame-note { color: var(--text-muted); font-style: italic; }
+.minigame-bug-preview {
+  background: transparent !important;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+.minigame-bug-label { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+#mini-game-body { color: var(--text-primary); }
+#mini-game-body .card,
+#mini-game-body .memory-card,
+#mini-game-body [class*="card"] {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+}
+#mini-game-body button {
+  background: rgba(139, 92, 246, 0.1) !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+#mini-game-body button:hover {
+  background: rgba(139, 92, 246, 0.2) !important;
+  border-color: var(--border-hover) !important;
+}
+#mini-game-body .btn-success {
+  background: var(--accent-success) !important;
+  color: white !important;
+}
+#mini-game-feedback { color: var(--text-secondary); }
+
+#mini-game-body canvas { border-radius: var(--radius-sm); }
+
+#messages { z-index: 1000; }
+#messaging-menu, #chat-interface {
+  background: var(--bg-dark) !important;
+  border: 1.5px solid var(--border-subtle) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(124, 58, 237, 0.08);
+}
+.card-header.bg-primary {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-glow)) !important;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
+}
+#chat-body {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-radius: var(--radius-sm);
+}
+#progressWrap {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+#attention {
+  background-color: transparent !important;
+  background: transparent !important;
+}

@@ -1,0 +1,24 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "percentage_chance" : 15,
+    "repeatable" : false,
+    "decision" : {
+        "title" : "[NAME] - I learnt Rust!",
+        "body" : "[NAME]: Hey! I've learnt Rust! The memory safety is crazy, I'll be implementing it in my work."
+    },
+    "requirements" : {
+        "stat_require" : [
+            { "stat" : "teachability", "operator" : ">", "value" : 150, "character_pk" : "*a" }
+        ]
+    },
+    "options" : [
+        {
+            "text" : "Clawesome!",
+            "energy_effect" : 1.30,
+            "happiness_effect" : 1.25,
+            "skill_level_effect" : 0.2,
+            "score_effect": 20
+        }
+    ]
+}

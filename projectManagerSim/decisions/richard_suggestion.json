@@ -1,0 +1,27 @@
+{
+    "decision_type": "CHARACTER",
+    "character_pk": 7,
+    "percentage_chance": 15,
+    "decision": {
+        "title": "Richard - Actually Has a Suggestion",
+        "body": "Richard: Sorry, I don't want to overstep... but I was looking at how we're structuring the repo and I thought of something that might help. Only if you want to hear it though."
+    },
+    "repeatable": false,
+    "deadline": 3,
+    "related_name": "richard_initiative",
+    "options": [
+        {
+            "text": "Yeah, go ahead.",
+            "score_effect": 20,
+            "happiness_effect": 1.2,
+            "confidence_effect": 1.25,
+            "reliability_effect": 1.1
+        },
+        {
+            "text": "Not now, we're in the middle of something.",
+            "score_effect": -70,
+            "happiness_effect": 0.8,
+            "confidence_effect": 0.75
+        }
+    ]
+}

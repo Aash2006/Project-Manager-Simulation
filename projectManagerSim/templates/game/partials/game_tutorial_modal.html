@@ -1,0 +1,26 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'gameplay_dashboard/css/game_tutorial.css' %}">
+<script defer src="{% static 'gameplay_dashboard/js/tutorial.js' %}"></script>
+
+<div class="modal fade" id="tutorialModal" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content tutorial-bubble"> <!  -- nts: try also CSS styling for a cute rounded bubble -->
+            <div class="modal-body">
+                <div class="tutorial-container">
+                    <div class="jerry-speaker-slot stopping" id="jerrySpeakerSlot">
+                        <img src="/static/images/jerry_talking.png" id="jerryTalking" class="jerry-sprite mouth-o" alt="Jerry is talking" style="display: none;">
+                        <img src="/static/images/jerry_pausing.png" id="jerryPausing" class="jerry-sprite mouth-dash" alt="Jerry's mouth's closed">
+                    </div>
+                    <div id="tutorialText" class="tutorial-text-area">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border-0 px-4 pb-4">
+            <button type="button" class="btn btn-secondary rounded-pill me-auto" id="tutorialPreviousBtn" style="display: none;">Previous</button>
+            <button type="button" class="btn btn-outline-secondary rounded-pill" id="tutorialSkipBtn">Skip Tutorial</button>
+            <button type="button" class ="btn btn-primary rounded-pill" id="tutorialContBtn">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>

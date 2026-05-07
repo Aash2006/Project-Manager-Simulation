@@ -1,0 +1,39 @@
+{
+    "decision_type" : "CHARACTER_RELATION",
+    "character_pk" : "*a",
+    "character_pk_2" : "?b",
+    "percentage_chance" : 30,
+    "decision" : {
+        "title" : "[NAME] & [NAME2] - Sketchy Code",
+        "body" : "[NAME]: I just reviewed [NAME2]'s code, it's literally just all Claude Code, I can tell."
+    },
+    "options" : [
+        {
+            "text" : "Hey, you think he's got Mythos?",
+            "relation_change" : -5,
+            "stress_effect" : 1.2,
+            "stress_effect_2" : 1.2,
+            "score_effect": -30,
+            "unlocking_decision": "claude_strikeback"
+        },
+        {
+            "text" : "That's ridiculous, they're gonna rewrite that from scratch.",
+            "relation_change" : -30,
+            "stress_effect_2" : 1.6,
+            "energy_effect_2" : 0.5,
+            "reliability_effect" : 1.3,
+            "score_effect": 30,
+            "create_tasks" : [
+                {
+                    "task_type" : 2,
+                    "name" : "Rewrite LLM Infested Code",
+                    "time_to_complete": 2,
+                    "unlocks_at_percent": 0,
+                    "number_of_people_required": 2,
+                    "energy_cost": 5,
+                    "difficulty": 3
+                }
+            ]
+        }
+    ]
+}

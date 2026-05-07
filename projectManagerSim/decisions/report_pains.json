@@ -1,0 +1,48 @@
+{
+    "decision_type": "PROJECT",
+    "decision": {
+        "title": "The Report is All Over the Place",
+        "body": "Someone finally compiled everyone's report sections into one document. It's a disaster, inconsistent formatting, sections that repeat themselves. Submission is very soon."
+    },
+    "deadline": 1,
+    "percentage_chance" : 30,
+    "related_name": "decision_report_mess",
+    "requirements": {
+        "day_requirement": 35
+    },
+    "options": [
+        {
+            "text": "One person rewrites the whole thing for consistency.",
+            "score_effect": 1,
+            "stress_effect": 1.2,
+            "energy_effect": 0.82,
+            "happiness_effect": 0.88,
+            "create_tasks": [
+                {
+                    "task_type": 2,
+                    "name": "Report Rewrite",
+                    "time_to_complete": 2,
+                    "unlocks_at_percent": 0,
+                    "number_of_people_required": 1,
+                    "energy_cost": 5,
+                    "difficulty": 2
+                }
+            ]
+        },
+        {
+            "text": "Send everyone's section back with notes to fix themselves.",
+            "score_effect": 0,
+            "stress_effect": 1.1,
+            "irritability_effect": 1.2,
+            "happiness_effect": 0.9,
+            "communication_skills_effect": 1.05
+        },
+        {
+            "text": "Submit it as is — the code is what matters.",
+            "score_effect": -2,
+            "stress_effect": 0.85,
+            "happiness_effect": 0.95,
+            "confidence_effect": 0.8
+        }
+    ]
+}

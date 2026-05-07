@@ -1,0 +1,545 @@
+
+#miniGameModal .form-check-label,
+#miniGameModal label,
+#miniGameModal .mb-2,
+#miniGameModal .fw-semibold,
+#miniGameModal div:not(.code-display):not(.question-box) {
+    color: #ffffff !important;
+}
+
+#miniGameModal .code-display,
+#miniGameModal .question-box,
+#miniGameModal pre,
+#miniGameModal code,
+#miniGameModal textarea {
+    color: #000000 !important;
+    background: #ffffff !important;
+}
+
+/* Global bug bar */
+.bugbar-wrap{
+  background:#fff;
+  border:1px solid rgba(17,24,39,0.08);
+  border-radius:16px;
+  padding:14px 16px;
+  margin: 12px 0 18px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+}
+.bugbar-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:8px;
+}
+.bugbar-title{ font-weight:800; color:#ffffff; }
+.bugbar-value{ font-weight:800; color:#ffffff; }
+.bugbar-progress{
+  height: 12px;
+  border-radius: 999px;
+  overflow:hidden;
+  background:#eef2ff;
+}
+.bugbar-fill{
+  background:#ef4444;
+  transition: width .35s ease;
+}
+.bugbar-sub{
+  margin-top:8px;
+  font-size:12px;
+  color: #000000;
+}
+
+/*Overall progress card*/
+.progresscard-wrap{
+  background:#fff;
+  border:1px solid rgba(17,24,39,0.08);
+  border-radius:16px;
+  padding:14px 16px;
+  margin: 12px 0 10px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+}
+.progresscard-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:8px;
+}
+.progresscard-title{
+  font-weight:800;
+  color:#ffffff;
+}
+.progresscard-value{
+  font-weight:800;
+  color:#ffffff;
+}
+.progresscard-progress{
+  height: 12px;
+  border-radius: 999px;
+  overflow:hidden;
+  background:#dbeafe;
+}
+.progresscard-fill{
+  background:#2563eb;
+  transition: width .35s ease;
+}
+.progresscard-sub{
+  margin-top:8px;
+  font-size:12px;
+  color:#6b7280;
+}
+.progresscard-pulse{
+  animation: pulse .5s ease;
+}
+
+.minigame-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.minigame-timer{
+  font-weight:800;
+  color:#0b1220;
+}
+.minigame-note{
+  font-size:12px;
+  color: #000000;
+}
+.minigame-bug-preview{
+  border:1px solid rgba(17,24,39,0.08);
+  border-radius:12px;
+  padding:10px 12px;
+  margin-bottom:12px;
+  background:#fafafa;
+}
+.minigame-bug-label{
+  font-size:12px;
+  color:#374151;
+  margin-bottom:6px;
+}
+
+.minigame-header {
+  margin-bottom: 10px;
+}
+.minigame-title {
+  font-weight: 800;
+  color: #0b1220;
+  font-size: 16px;
+}
+.minigame-desc {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
+.minigame-shake{
+  animation: shake .35s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.015); }
+  100% { transform: scale(1); }
+}
+.minigame-pulse{
+  animation: pulse .5s ease;
+}
+
+.timer-warn { color: #f59e0b; }
+.timer-danger { color: #ef4444; }
+
+.bug-spray-controls {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.bug-spray-area {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(180deg, #eff6ff, #dbeafe);
+  border-radius: 14px;
+  border: 1px solid rgba(17,24,39,0.08);
+  overflow: hidden;
+}
+.bug-spray-area.spraying {
+  box-shadow: inset 0 0 0 3px rgba(37,99,235,0.35);
+}
+.bug {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 22px;
+  cursor: pointer;
+  user-select: none;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(17,24,39,0.10);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  transition: transform .12s ease, opacity .15s ease, left .55s ease, top .55s ease;
+}
+.bug:hover {
+  transform: scale(1.06);
+}
+.bug.bug-sprayed {
+  opacity: 0.2;
+  transform: scale(0.7);
+}
+
+.pipeline-list {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.pipeline-item {
+  cursor: grab;
+  user-select: none;
+  color: #ffffff !important; 
+  background: rgba(255, 255, 255, 0.1);  
+  padding: 12px 16px; 
+  margin-bottom: 8px;  
+  border-radius: 8px;  
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+.pipeline-item.dragging {
+  opacity: 0.65;
+  color: #ffffff !important; 
+}
+
+.minigame-title,
+.minigame-header {
+  color: #ffffff !important;
+}
+
+#checkPipelineBtn {
+  color: #ffffff !important;
+}
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.memory-card {
+  height: 64px;
+  border-radius: 12px;
+  border: 1px solid rgba(17,24,39,0.10);
+  background: #eff6ff;
+  font-weight: 800;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform .12s ease, background .12s ease;
+}
+.memory-card:hover {
+  transform: scale(1.02);
+}
+.memory-card.done {
+  background: #2563eb;
+  color: white;
+}
+.memory-card.memory-wrong {
+  background: #fecaca;
+}
+
+.special-minigame-banner {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  z-index: 20;
+  background: #1d4ed8;
+  color: #000000;
+  border: 4px solid #bfdbfe;
+  padding: 12px 22px;
+  font-family: "Courier New", monospace;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 0 4px #1e3a8a, 0 0 24px rgba(59,130,246,0.45);
+  animation: specialFlash 1.8s ease forwards;
+}
+
+.special-minigame-banner.hide {
+  display: none;
+}
+
+@keyframes specialFlash {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.6);
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.08);
+  }
+  45% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-12px) scale(1);
+  }
+}
+
+
+.gb-battle-wrap {
+  font-family: "Courier New", monospace;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gb-battle-arena {
+  position: relative;
+  min-height: 380px;
+  border: 4px solid #1e3a8a;
+  border-radius: 0;
+  padding: 14px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #dbeafe 0%, #bfdbfe 48%, #93c5fd 48%, #dbeafe 100%);
+  box-shadow: inset 0 0 0 4px #ffffff;
+}
+
+.gb-battle-arena::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255,255,255,0.55) 0 10%, transparent 11%),
+    radial-gradient(circle at 78% 24%, rgba(255,255,255,0.45) 0 8%, transparent 9%),
+    radial-gradient(circle at 65% 78%, rgba(255,255,255,0.18) 0 12%, transparent 13%);
+  pointer-events: none;
+}
+
+.gb-panel {
+  border: 4px solid #1e3a8a;
+  background: #ffffff;
+  box-shadow: 4px 4px 0 #93c5fd;
+  border-radius: 0;
+  padding: 10px 12px;
+}
+
+.gb-enemy-status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 48%;
+  z-index: 2;
+}
+
+.gb-enemy-sprite {
+  position: absolute;
+  top: 70px;
+  right: 42px;
+  font-size: 108px;
+  line-height: 1;
+  filter: drop-shadow(4px 4px 0 rgba(30,58,138,0.18));
+  z-index: 1;
+}
+
+.gb-player-sprite {
+  position: absolute;
+  left: 20px;
+  bottom: 86px;
+  font-size: 126px;
+  line-height: 1;
+  filter: drop-shadow(4px 4px 0 rgba(30,58,138,0.18));
+  z-index: 1;
+}
+
+.gb-player-status {
+  position: absolute;
+  right: 14px;
+  bottom: 70px;
+  width: 44%;
+  z-index: 2;
+}
+
+.gb-name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  font-size: 14px;
+  color: #1e3a8a;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.gb-hp-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gb-hp-label {
+  font-weight: 800;
+  font-size: 12px;
+  color: #1e3a8a;
+}
+
+.gb-hpbar {
+  flex: 1;
+  height: 12px;
+  border: 2px solid #1e3a8a;
+  background: #dbeafe;
+  overflow: hidden;
+}
+
+.gb-hpfill {
+  height: 100%;
+  transition: width .35s ease;
+}
+
+.gb-player-hp {
+  background: #2563eb;
+}
+
+.gb-enemy-hp {
+  background: #60a5fa;
+}
+
+.gb-player-hp-text,
+.gb-enemy-hp-text {
+  margin-top: 8px;
+  text-align: right;
+  font-weight: 800;
+  font-size: 14px;
+  color: #1e3a8a;
+}
+
+.gb-stage-indicator {
+  text-align: right;
+  font-size: 12px;
+  font-weight: 800;
+  color: #1e3a8a;
+}
+
+.gb-bottom-ui {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 10px;
+}
+
+.gb-log-box {
+  min-height: 120px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #1e3a8a;
+  background: #ffffff;
+}
+
+.gb-command-box {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  min-height: 120px;
+  background: #ffffff;
+}
+
+.gb-card-btn {
+  border: none;
+  background: transparent;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 4px 2px;
+  font-family: "Courier New", monospace;
+  color: #1e3a8a;
+}
+
+.gb-card-btn:hover:not(:disabled) {
+  background: rgba(37,99,235,0.08);
+}
+
+.gb-card-btn:disabled,
+.gb-card-btn.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.gb-card-arrow {
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.2;
+  width: 14px;
+  flex-shrink: 0;
+  color: #2563eb;
+}
+
+.gb-card-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.gb-card-name {
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.gb-card-meta {
+  font-size: 11px;
+  color: #3b82f6;
+}
+
+.battle-crit {
+  color: #1d4ed8;
+  font-weight: 800;
+}
+
+.code{
+    color: #000000 !important; 
+    background: white !important;
+}
+
+.minigame-modal,
+.minigame-modal *,
+#mini-game-body,
+#mini-game-body *,
+.minigame-header,
+.minigame-meta,
+.mb-2,
+.fw-semibold {
+    color: #000000 !important;
+}
+
+.minigame-modal,
+.minigame-modal *:not(textarea):not(input):not(pre):not(code):not(.code-display):not(#codeDisplay):not(.question-box) {
+    color: #ffffff !important;
+}
+
+.minigame-modal textarea,
+.minigame-modal input,
+.minigame-modal pre,
+.minigame-modal code,
+.question-box,
+.code-display,
+#codeDisplay {
+    color: #000000 !important;
+    background: #ffffff !important;
+}

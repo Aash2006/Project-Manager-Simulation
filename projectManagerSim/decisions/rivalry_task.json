@@ -1,0 +1,42 @@
+{
+    "decision_type" : "CHARACTER_RELATION",
+    "character_pk" : "*a",
+    "character_pk_2" : "?b",
+    "decision" : {
+        "title" : "[NAME] & [NAME2] - That's It.",
+        "body" : "[NAME]: I'm done. [NAME2] acts like she's the only one who can do anything around here and I'm sick of it.\n[NAME2]: Because I basically am. If you have a problem with that, maybe you're in the wrong place."
+    },
+    "deadline" : 1,
+    "requirements" : {
+        "day_requirement" : 3
+    },
+    "options" : [
+        {
+            "text" : "You're clearly not doing enough.",
+            "score_effect": -3,
+            "leave_team": 4,
+            "happiness_effect_2": 1.15,
+            "confidence_effect_2": 1.2,
+            "irritability_effect_2": 0.85
+        },
+        {
+            "text" : "Commits don't mean you get to have an awful attitude.",
+            "score_effect": -3,
+            "happiness_effect": 1.15,
+            "confidence_effect": 1.2,
+            "irritability_effect": 0.85,
+            "leave_team": 5
+        },
+        {
+            "text" : "Both of you are out of line. Sort it out.",
+            "score_effect": -1,
+            "happiness_effect": 0.82,
+            "irritability_effect": 1.2,
+            "stress_effect": 1.15,
+            "happiness_effect_2": 0.82,
+            "irritability_effect_2": 1.2,
+            "stress_effect_2": 1.15,
+            "relation_change": -35
+        }
+    ]
+}

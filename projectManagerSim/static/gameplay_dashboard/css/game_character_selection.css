@@ -1,0 +1,383 @@
+.character-selection-container{
+max-width:1400px;
+margin:0 auto;
+padding:2rem;
+}
+
+.warning-banner{
+background:#fff3cd;
+border:2px solid #ffc107;
+border-radius:8px;
+padding:1rem;
+margin-bottom:2rem;
+text-align:center;
+color:#856404;
+}
+
+.selection-header{
+text-align:center;
+margin-bottom:2rem;
+}
+
+.selection-header h1{
+font-size:2.5rem;
+margin-bottom:0.5rem;
+color:#333;
+}
+
+.subtitle{
+color:#666;
+font-size:1.1rem;
+}
+
+.selection-counter{
+font-size:1.3rem;
+font-weight:bold;
+margin-top:1rem;
+padding:0.5rem 1rem;
+background:#f0f0f0;
+border-radius:8px;
+display:inline-block;
+color: #333 
+}
+
+#selected-count{
+color:#007bff;
+}
+
+.checkbox-container {
+    margin-right: 1rem;
+}
+
+.character-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+gap:1.5rem;
+margin-bottom:2rem;
+}
+
+.character-card{
+border:2px solid #dee2e6;
+border-radius:12px;
+background:white;
+transition:all 0.3s ease;
+overflow:hidden;
+}
+
+.character-card:hover{
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+transform:translateY(-2px);
+}
+
+.character-card.selected{
+border-color:#007bff;
+background:#f0f7ff;
+}
+
+.card-header{
+display:flex;
+align-items:center;
+padding:1rem;
+background:#f8f9fa;
+border-bottom:1px solid #dee2e6;
+}
+
+.character-checkbox{
+width:24px;
+height:24px;
+cursor:pointer;
+margin-right: 24px
+}
+
+.character-info h3{
+margin:0;
+font-size:1.2rem;
+}
+
+.role{
+color:#666;
+margin-top:0.25rem;
+font-size:0.9rem;
+}
+
+.card-body{
+padding:1rem;
+}
+
+.description{
+font-size:0.95rem;
+color:#555;
+margin-bottom:1rem;
+line-height:1.4;
+}
+
+.label{
+font-weight:bold;
+font-size:0.9rem;
+color:#333;
+}
+
+.personality-badge{
+background:#e9ecef;
+padding:0.25rem 0.5rem;
+border-radius:4px;
+font-size:0.85rem;
+}
+
+.traits-list{
+display:flex;
+flex-wrap:wrap;
+gap:0.5rem;
+margin-top:0.25rem;
+}
+
+.trait-badge{
+background:#007bff;
+color:white;
+padding:0.25rem 0.5rem;
+border-radius:4px;
+font-size:0.8rem;
+}
+
+.wlb-bar{
+width:100%;
+height:8px;
+background:#e9ecef;
+border-radius:4px;
+overflow:hidden;
+margin:0.25rem 0;
+}
+
+.wlb-fill{
+height:100%;
+background:linear-gradient(90deg,#dc3545,#ffc107,#28a745);
+}
+
+.relationships-list{
+margin-top:0.5rem;
+padding:0.5rem;
+background:#f8f9fa;
+border-radius:4px;
+max-height:200px;
+overflow-y:auto;
+}
+
+.relationship-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0.5rem;
+margin-bottom:0.25rem;
+background:white;
+border-radius:4px;
+}
+
+.select-button{
+display:block;
+width:100%;
+padding:0.75rem;
+text-align:center;
+border:2px solid #007bff;
+background:white;
+color:#007bff;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+transition:all 0.3s ease;
+}
+
+.select-button:hover{
+background:#007bff;
+color:white;
+}
+
+.character-card.selected .select-button{
+background:#007bff;
+color:white;
+}
+
+.select-button .selected-text{
+display:none;
+}
+
+.character-card.selected .select-text{
+display:none;
+}
+
+.character-card.selected .selected-text{
+display:inline;
+}
+
+.confirm-section{
+text-align:center;
+padding:2rem 0;
+}
+
+#confirm-team{
+padding:1rem 3rem;
+font-size:1.2rem;
+border-radius:8px;
+border:none;
+background:#007bff;
+color:white;
+cursor:pointer;
+}
+
+#confirm-team:disabled{
+opacity:0.5;
+cursor:not-allowed;
+}
+
+/* Chemistry Preview */
+
+.chemistry-preview{
+background:#f8f9fa;
+border:2px solid #dee2e6;
+border-radius:8px;
+padding:1.5rem;
+margin-bottom:2rem;
+color: #333;
+}
+
+.chemistry-preview h3{
+margin-top:0;
+margin-bottom:1rem;
+color: #333
+}
+
+.chemistry-preview .analyzing{
+color:#666;
+font-style:italic;
+}
+
+/* Section spacing */
+
+.personality-section,
+.traits-section,
+.wlb-section{
+margin-bottom:0.75rem;
+}
+
+.wlb-value{
+font-size:0.85rem;
+color:#666;
+}
+
+/* Relationship toggle button */
+
+.toggle-relationships{
+background:none;
+border:1px solid #dee2e6;
+padding:0.5rem 1rem;
+border-radius:4px;
+cursor:pointer;
+width:100%;
+text-align:left;
+font-size:0.9rem;
+transition:background 0.2s ease;
+}
+
+.toggle-relationships:hover{
+background:#f8f9fa;
+}
+
+/* Empty text styles */
+
+.no-traits{
+color:#999;
+font-size:0.85rem;
+font-style:italic;
+}
+
+.no-relationships{
+color:#999;
+font-size:0.85rem;
+font-style:italic;
+text-align:center;
+margin:0.5rem 0;
+}
+
+/* Badge styles */
+
+.badge{
+padding:0.25rem 0.5rem;
+border-radius:4px;
+font-size:0.8rem;
+white-space:nowrap;
+}
+
+.badge-success{
+background:#28a745;
+color:white;
+}
+
+.badge-primary{
+background:#007bff;
+color:white;
+}
+
+.badge-secondary{
+background:#6c757d;
+color:white;
+}
+
+.badge-warning{
+background:#ffc107;
+color:#333;
+}
+
+.badge-danger{
+background:#dc3545;
+color:white;
+}
+
+/* Card footer */
+
+.card-footer{
+padding:1rem;
+border-top:1px solid #dee2e6;
+}
+
+/* Confirm button hover */
+
+#confirm-team:hover:not(:disabled){
+background:#0056b3;
+transform:translateY(-2px);
+box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Back link */
+
+.back-link{
+margin-top:1rem;
+}
+
+.back-link a{
+color:#6c757d;
+text-decoration:none;
+}
+
+.back-link a:hover{
+color:#007bff;
+text-decoration:underline;
+}
+
+#chemistry-preview {
+  margin-top: 20px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#chemistry-content {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

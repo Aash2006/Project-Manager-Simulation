@@ -1,0 +1,28 @@
+{
+    "decision_type" : "CHARACTER_RELATION",
+    "character_pk" : "*a",
+    "character_pk_2" : "?b",
+    "percentage_chance" : 15,
+    "decision" : {
+        "title" : "[NAME] & [NAME2] - Merge Conflicts War",
+        "body" : "[NAME2]: [NAME] overwote my work! I spent ages on it."
+    },
+    "options" : [
+        {
+            "text" : "If it's working I don't care.",
+            "relation_change" : -10,
+            "irritability_effect_2" : 1.3,
+            "energy_effect_2" : 0.8,
+            "happiness_effect_2" : 0.8,
+            "score_effect": -5
+        },
+        {
+            "text" : "Revert your changes and fix it.",
+            "relation_change" : -5,
+            "irritability_effect" : 1.3,
+            "stress_effect" : 1.2,
+            "happiness_effect_2" : 1.1,
+            "score_effect": -5
+        }
+    ]
+}

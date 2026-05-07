@@ -1,0 +1,40 @@
+{% load static %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<nav class="simple-nav">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <i class="fas fa-tasks logo-icon"></i>
+            <span><a href="{% url 'game_start' %}" class="nav-link">Project Manager</a></span>
+        </div>
+        {% if user.is_anonymous %}
+
+        {% else %}
+            {% if in_game %}
+                <a href="{% url 'game_characters' %}" class="nav-link">
+                        Teammates
+                </a>
+                <a href="{% url 'game_tasks' %}" class="nav-link">
+                        Tasks
+                </a>
+                <a href="{% url 'relationships' save.id %}" class="nav-link">
+                        Relationships
+                </a>  
+                <a href="{% url 'game_statistics' %}" class="nav-link">
+                        Statistics
+                </a>
+                <a href="{% url 'game_dashboard' %}" class="nav-link">
+                        Dashboard
+                </a>
+                <a href="{% url 'game_dashboard' %}?action=start" class="nav-link fw-bold text-primary">
+                        Start Day
+                </a>
+            {% endif %}
+
+            <div class="nav-user">
+                <a href="{% url 'user_dashboard' %}" class="nav-link">
+                    Main Menu
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</nav>

@@ -1,0 +1,249 @@
+{% extends 'base_body.html' %}
+<!-- Loads JS Files from static folder -->
+{% load static %}
+
+{% block title %}
+  Project Dashboard
+{% endblock %}
+
+  <div class="bugbar-sub">Wrong answer or timeout adds +10% bugs.</div>
+
+  {# Optional: store bug bar per save instead of globally #}
+  {% if save_id %}
+    <input type="hidden" id="bugBarSaveId" value="{{ save_id }}">
+  {% endif %}
+</div>
+
+
+{% block page_body %}
+  <input type="hidden" id="bugBarSaveId" value="{{ save.id }}">
+  <!-- We get save.id from a Django view, and use this for JS functions below -->
+  <div data-save-id="{{ save.id }}" data-days-in-project="{{ save.current_day }}">
+    {% include 'partials/start_day_alert.html' %}
+    {% include 'partials/low_energy_modal.html' %}
+    {% include 'partials/mini_game_modal.html' %}
+    {% include 'partials/messages.html' %}
+    <!-- Container Row 2 -->
+    <!-- Progress bar -->
+    <div id="progressWrap" class="progresscard-wrap">
+      <div class="progresscard-top">
+        <div class="progresscard-title">Overall Progress</div>
+        <div class="progresscard-value"><span id="progressPct">{{ save.progress_percent }}</span>%</div>
+      </div>
+
+      <div class="progress progresscard-progress" role="progressbar" aria-label="Overall progress">
+        <div
+          id="project-progress-bar"
+          class="progress-bar progresscard-fill"
+          style="width: {{ save.progress_percent }}%">
+        </div>
+      </div>
+      </br>
+
+      <div class="progresscard-top">
+        <div class="bugbar-title">Bug Status 
+          <i class="bi bi-info-circle text-muted info-tooltip" 
+             data-bs-toggle="tooltip" 
+             data-bs-placement="right" 
+             title="This tells you how well you have completed your bug games. The lower the score the better!"></i>
+        </div>
+        <div class="bugbar-value"><span id="bugBarPct">0</span>%</div>
+      </div>
+      <div class="progress progresscard-progress" role="progressbar" aria-label="Overall progress">
+        <div
+          id="bugBarFill" 
+          class="progress-bar progresscard-fill"
+          style="width: 0%;">
+        </div>
+      </div>
+
+      <div id="days-in-project-text" class="progresscard-sub">
+        Day <strong>{{ save.current_day }} / {{ save.total_days }}</strong>
+      </div>
+    </div>
+
+    <!-- Container Row 3 -->
+    <div class="row mb-2 g-3">
+      <!-- User energy bar and character cards column -->
+      <div class="col-12 col-md-8 w-100">
+        <div class="row mb-2">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">Requires Attention</h3>
+                <p class="card-body">{% include 'partials/requires_attention.html' %}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<div class="row g-0 p-0 w-100"> 
+  <div class="col-10 d-flex pe-2"> 
+    <button class="btn btn-outline-primary w-100 fw-bold" 
+            id="start-day-button" 
+            data-save-id="{{ save.id }}">
+        Start day
+    </button>
+  </div>
+  <div class="col-2 d-flex">
+    <button class="btn btn-outline-secondary w-100" 
+            id="how-to-play-btn" 
+            onclick="restartTour(); return false;"
+            title="View the game tutorial">
+        <i class="bi bi-question-circle"></i> Help
+    </button>
+  </div>
+</div>
+  </div>
+  
+  {% block scripts %}
+    <script src="{% static 'gameplay_dashboard/js/space_shooter.js' %}"></script> 
+    <script src="{% static 'gameplay_dashboard/js/day.js' %}"></script>
+    <script src="{% static 'gameplay_dashboard/js/gameplay_dashboard.js' %}"></script>
+    <script src="{% static 'gameplay_dashboard/js/minigames.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'gameplay_dashboard/css/minigames.css' %}">
+    <link rel="stylesheet" href="{% static 'gameplay_dashboard/css/space_shooter.css' %}">  
+    <script src="{% static 'gameplay_dashboard/js/resting.js' %}"></script>
+    <script src="{% static 'gameplay_dashboard/js/tasks.js' %}"></script>
+    <script>
+      class EnergySystem {
+        constructor(saveId) {
+          this.saveId = saveId
+          this.init()
+        }
+      
+        async init() {
+          this.attachEventListeners()
+        }
+      
+        updatePlayerEnergyUI(playerData) {
+          const energyText = document.querySelector('#player-energy-text')
+          if (energyText) {
+            energyText.textContent = `Your energy: ${playerData.energy}%`
+          }
+      
+          const energyBar = document.querySelector('#player-energy-bar')
+          if (energyBar) {
+            energyBar.style.width = `${playerData.energy}%`
+            energyBar.classList.remove('bg-danger', 'bg-warning', 'bg-primary', 'bg-success', 'energy_low')
+      
+            if (playerData.energy < 10) {
+              energyBar.classList.add('bg-danger', 'energy_low')
+            } else if (playerData.energy < 30) {
+              energyBar.classList.add('bg-warning')
+            } else if (playerData.energy < 50) {
+              energyBar.classList.add('bg-success')
+            } else {
+              energyBar.classList.add('bg-primary')
+            }
+          }
+        }
+      
+        updateNPCsEnergyUI(npcsData) {
+          npcsData.forEach((npc) => {
+            const energyText = document.querySelector(`#npc-${npc.character_id}-energy`)
+            if (energyText) {
+              energyText.textContent = `energy: ${npc.energy}%`
+            }
+      
+            const energyBar = document.querySelector(`#npc-${npc.character_id}-energy-bar`)
+            if (energyBar) {
+              energyBar.style.width = `${npc.energy}%`
+              energyBar.classList.remove('bg-danger', 'bg-warning', 'bg-primary', 'critical', 'low', 'medium', 'high', 'very_high')
+      
+              if (npc.energy < 10) {
+                energyBar.classList.add('critical')
+              } else if (npc.energy < 30) {
+                energyBar.classList.add('low')
+              } else if (npc.energy <= 70) {
+                energyBar.classList.add('medium')
+              } else if (npc.energy < 85) {
+                energyBar.classList.add('high')
+              } else {
+                energyBar.classList.add('very_high')
+              }
+            }
+          })
+        }
+      
+      
+        
+        attachEventListeners() {
+          const sleepButton = document.querySelector('#sleep-button')
+          if (sleepButton) {
+            sleepButton.addEventListener('click', async (e) => {
+              e.preventDefault()
+              await this.sleep()
+            })
+          }
+          const shortRestButton = document.querySelector('#short-rest-button')
+          if (shortRestButton) {
+            shortRestButton.addEventListener('click', async (e) => {
+              e.preventDefault()
+              await this.shortRest()
+            })
+          }
+          const startDayButton = document.querySelector('#start-day-button')
+          if (startDayButton) {
+            startDayButton.addEventListener('click', async (e) => {
+              /*const energyCheck = await this.checkEnergy(20)
+              if (energyCheck && energyCheck.has_enough === false) {
+                e.preventDefault()
+                loadAlertModal('Energy', 'Not enough energy to start the day! Sleep first.')
+              }*/
+              // loadDecisionModal() // handled by day.js now
+            })
+          }
+        }
+        
+        getCookie(name) {
+          let cookieValue = null
+          if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';')
+            for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim()
+              if (cookie.substring(0, name.length + 1) === name + '=') {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1))
+                break
+              }
+            }
+          }
+          return cookieValue
+        }
+      }
+      
+      // HAPPINESS-ENERGY SYSTEM INTEGRATION
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize existing energy system
+        const saveId = {{ save.id }};
+        if (saveId) {
+          window.energySystem = new EnergySystem(saveId)
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('action') === 'start') {
+          testDay(saveId);
+          const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+          window.history.replaceState({ path: cleanUrl }, '', cleanUrl);
+        }
+
+        if (urlParams.get('new_game') === 'true') {
+          Object.keys(localStorage)
+            .filter(k => k.startsWith('bug_percent_'))
+            .forEach(k => localStorage.removeItem(k));
+          if (typeof renderBugBar === 'function') {
+            renderBugBar(0);
+          }
+        }
+
+      });
+    </script>
+    {% if show_tour %}
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        startTour();
+      });
+    </script>
+    {% endif %}
+  {% endblock %}
+{% endblock %}

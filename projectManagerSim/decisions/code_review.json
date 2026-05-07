@@ -1,0 +1,36 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : 9,
+    "decision" : {
+        "title" : "[NAME] - Did You See My Code?",
+        "body" : "Hey, did you get a chance to look at what I did? Genuinely some of my best work. Honestly I don't know how the rest of the team manages without me."
+    },
+    "deadline" : 2,
+    "requirements" : {
+        "day_requirement" : 2
+    },
+    "options" : [
+        {
+            "text" : "It was brilliant, Victor.",
+            "score_effect": 0,
+            "happiness_effect": 1.15,
+            "confidence_effect": 1.2,
+            "irritability_effect": 0.9,
+            "reliability_effect": 0.92
+        },
+        {
+            "text" : "Yeah, good work.",
+            "score_effect": 0,
+            "happiness_effect": 1.05,
+            "confidence_effect": 1.05
+        },
+        {
+            "text" : "It was fine, nothing special.",
+            "score_effect": 10,
+            "happiness_effect": 0.82,
+            "confidence_effect": 0.85,
+            "stress_effect": 1.15,
+            "irritability_effect": 1.3
+        }
+    ]
+}

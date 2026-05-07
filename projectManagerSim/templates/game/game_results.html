@@ -1,0 +1,211 @@
+{% extends 'base_body.html' %}
+{% load static %}
+
+{% block page_title %}Results{% endblock %}
+
+{% block page_body %}
+<div class="container mt-5 pb-5">
+
+  <div class="row justify-content-center g-4">
+
+    {# Grade #}
+    <div class="col-md-5">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header bg-primary text-white py-3 text-center">
+          <h2 class="mb-0">Project Results</h2>
+        </div>
+        <div class="card-body p-5 text-center d-flex flex-column justify-content-center">
+          <p class="text-muted text-uppercase fw-bold mb-1">Final Performance</p>
+          <h1 class="display-2 fw-bold text-dark">{{ grade }}</h1>
+          <h4 class="text-muted mt-2">{{ grade_response }}</h4>
+        </div>
+        <div class="card-footer bg-light py-3">
+          <a href="{% url 'game_start_new' %}" class="btn btn-outline-primary btn-sm w-100">New Game</a>
+        </div>
+      </div>
+    </div>
+
+    {# Overall stats #}
+    {% if save %}
+    <div class="col-md-7">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header bg-primary text-white py-3 text-center">
+          <h2 class="mb-0">Run Summary</h2>
+        </div>
+        <div class="card-body">
+
+          {# 2×2 stat grid #}
+          <div class="row g-3 mb-3">
+            <div class="col-6">
+              <div class="border rounded p-3 text-center h-100" style="background: var(--bg-card); border-color: var(--border-subtle) !important;">
+                <div class="fs-2 fw-bold text-primary">{{ save.progress_percent }}%</div>
+                <div class="text-muted small">Project Completed</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="border rounded p-3 text-center h-100" style="background: var(--bg-card); border-color: var(--border-subtle) !important;">
+                <div class="fs-2 fw-bold text-primary">{{ total_days_played }}</div>
+                <div class="text-muted small">Days Played</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="border rounded p-3 text-center h-100" style="background: var(--bg-card); border-color: var(--border-subtle) !important;">
+                <div class="fs-2 fw-bold text-success">{{ tasks_completed }}</div>
+                <div class="text-muted small">Tasks Completed</div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="border rounded p-3 text-center h-100" style="background: var(--bg-card); border-color: var(--border-subtle) !important;">
+                <div class="fs-2 fw-bold {% if tasks_failed > 0 %}text-danger{% else %}text-success{% endif %}">
+                  {{ tasks_failed }}
+                </div>
+                <div class="text-muted small">Tasks Failed / Deferred</div>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="row g-2 text-center">
+            <div class="col-4">
+              <div class="small text-muted">Avg Progress/Day</div>
+              <div class="fw-bold">{{ avg_progress_per_day }}%</div>
+            </div>
+            <div class="col-4">
+              <div class="small text-muted">Best Day</div>
+              <div class="fw-bold">{{ highest_daily_progress }} pts</div>
+            </div>
+            <div class="col-4">
+              <div class="small text-muted">Final Score</div>
+              <div class="fw-bold">{{ save.score }}</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  {% if character_stats %}
+  <div class="row g-4 mt-2">
+
+    {# Team performance - one card per character #}
+    {% for char in character_stats %}
+    <div class="col-md-3 col-sm-6">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header bg-secondary text-white py-2">
+          <div class="d-flex align-items-center gap-2">
+            <span class="fs-5">{{ char.personality_icon }}</span>
+            <div class="lh-sm">
+              <div class="fw-bold small">{{ char.name }}</div>
+              <div class="opacity-75" style="font-size: 0.7rem;">{{ char.role }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body p-3">
+          <span class="badge bg-{{ char.performance_class }} mb-3">{{ char.performance_label }}</span>
+
+          {# Energy bar #}
+          <div class="mb-2">
+            <div class="d-flex justify-content-between small mb-1">
+              <span>⚡ Energy</span>
+              <span>{{ char.final_energy }}/100</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar
+                {% if char.final_energy >= 60 %}bg-success
+                {% elif char.final_energy >= 30 %}bg-warning
+                {% else %}bg-danger{% endif %}"
+                style="width: {{ char.final_energy }}%"></div>
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <div class="d-flex justify-content-between small mb-1">
+              <span>😊 Happiness</span>
+              <span>{{ char.final_happiness }}/100</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar
+                {% if char.final_happiness >= 60 %}bg-success
+                {% elif char.final_happiness >= 30 %}bg-warning
+                {% else %}bg-danger{% endif %}"
+                style="width: {{ char.final_happiness }}%"></div>
+            </div>
+          </div>
+
+          {# Traits #}
+          {% if char.traits %}
+          <div class="mt-2">
+            {% for trait in char.traits %}
+            <span class="badge bg-light text-dark border me-1 small">{{ trait }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+  {% endif %}
+
+  {% if save %}
+  <div class="row g-4 mt-2">
+    <div class="col-12">
+      <div class="card shadow-lg border-0">
+        <div class="card-header bg-secondary text-white py-2">
+          <div class="d-flex align-items-center justify-content-between">
+            <h4 class="mb-0">📈 Daily Progress</h4>
+            <div class="d-flex gap-2">
+              <button id="tab-progress" class="btn btn-sm btn-light chart-tab active">📈 Progress</button>
+              <button id="tab-score"    class="btn btn-sm btn-outline-light chart-tab">🏆 Score</button>
+              <button id="tab-tasks"    class="btn btn-sm btn-outline-light chart-tab">✅ Tasks</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="text-muted text-center chart-empty d-none">No data yet.</p>
+          <canvas id="chartCanvas"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <div class="col-12">
+      <div class="card shadow-lg border-0">
+        <div class="card-header bg-secondary text-white py-3">
+          <h4 class="mb-0">💡 Areas for Improvement</h4>
+        </div>
+        <div class="card-body">
+          {% if improvement_tips %}
+          <div class="row g-3">
+            {% for icon, tip in improvement_tips %}
+            <div class="col-md-4">
+              <div class="d-flex align-items-start gap-2">
+                <span class="fs-5 flex-shrink-0">{{ icon }}</span>
+                <span class="text-muted small">{{ tip }}</span>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <p class="text-muted mb-0">No tips available.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  window.dailyStatsData = {{ daily_stats_json|safe }};
+</script>
+<script src="{% static 'gameplay_dashboard/js/game_statistics.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,30 @@
+# Text files — normalize line endings
+* text=auto
+*.py text
+*.html text
+*.js text
+*.css text
+*.json text
+*.md text
+*.txt text
+
+# Binary files — do not modify
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.sqlite3 binary
+*.db binary
+
+# Ignore Python cache / local IDE files
+*.pyc binary
+__pycache__/ binary
+.env binary
+.idea/ binary
+.vscode/ binary

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+<!-- This extends from base.html which uses
+ title and body, so we need to make another name for them 
+
+ ^made 'page_header' for page titles, 
+ files that extend base_body.html also extend base.html so can also override 
+ diretly 'title' already
+-->
+
+{% block body %}
+    <div class="container-fluid bg-light p-3 min-vh-100">
+        <h1>{% block page_header %}{% endblock %}</h1>
+        {% block page_body %}
+        {% endblock %}
+    </div>
+{% endblock %}
+

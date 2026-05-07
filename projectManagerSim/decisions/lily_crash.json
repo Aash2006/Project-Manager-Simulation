@@ -1,0 +1,33 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : 2,
+    "repeatable" : false,
+    "requirements" : {
+        "stat_require" : [
+            { "stat" : "energy", "operator" : "<", "value" : 50, "character_pk" : 2 }
+        ],
+        "is_working_task" : true
+    },
+    "decision" : {
+        "title" : "Supervisor - Lilly's Concerning",
+        "body" : "Supervisor: Lilly hasn't left the lab in 48 hours. She looks like she'll faint any second."
+    },
+    "options" : [
+        {
+            "text" : "Don't worry, she'll go home when she's done.",
+            "stress_effect" : 1.4,
+            "energy_effect" : 0.5,
+            "skill_level_effect" : 1.05,
+            "score_effect": -20,
+            "unlocking_decision" : "lily_crash_out",
+            "unlocking_day_delay" : 2
+        },
+        {
+            "text" : "I'll force her to go home and sleep.",
+            "set_rest" : true,
+            "happiness_effect" : 1.1,
+            "reliability_effect" : 0.8,
+            "score_effect": 10
+        }
+    ]
+}

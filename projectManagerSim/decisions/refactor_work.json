@@ -1,0 +1,39 @@
+{
+    "decision_type" : "CHARACTER_RELATION",
+    "character_pk" : "*a",
+    "character_pk_2" : "?b",
+    "percentage_chance" : 10,
+    "decision" : {
+        "title" : "[NAME] & [NAME2] - Architecture Debate",
+        "body" : "[NAME]: I think we should rewrite a module for scalability. \n[NAME2]: this is way too early for that, we don't know if we'll use those abstractions!"
+    },
+    "options" : [
+        {
+            "text" : "We don't have time for that.",
+            "relation_change" : -15,
+            "reliability_effect_2" : 1.1,
+            "stress_effect" : 1.2,
+            "confidence_effect" : 0.8,
+            "score_effect": 15
+        },
+        {
+            "text" : "Refactor for the long term.",
+            "relation_change" : -15,
+            "skill_level_effect" : 1.1,
+            "stress_effect_2" : 1.2,
+            "reliability_effect_2" : 0.9,
+            "score_effect": 50,
+            "create_tasks" : [
+                {
+                    "task_type" : 2, 
+                    "name" : "Refactoring Work",
+                    "time_to_complete": 3,
+                    "unlocks_at_percent":0,
+                    "number_of_people_required":2,
+                    "energy_cost": 5,
+                    "difficulty": 1
+                }
+            ]
+        }
+    ]
+}

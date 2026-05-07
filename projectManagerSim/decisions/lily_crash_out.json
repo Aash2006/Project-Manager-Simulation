@@ -1,0 +1,20 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : 2,
+    "repeatable" : false,
+    "decision" : {
+        "title" : "Supervisor - Lilly's Fainted!",
+        "body" : "Supervisor: Lilly fainted! She'll be out of commission for a while."
+    },
+    "related_name": "lily_crash_out",
+    "is_locked" : true,
+    "options" : [
+        {
+            "text" : "Oh my god.",
+            "stress_effect" : 1.4,
+            "energy_effect" : 0.0,
+            "score_effect": -20,
+            "set_rest": true
+        }
+    ]
+}

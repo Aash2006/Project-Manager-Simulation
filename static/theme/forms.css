@@ -1,0 +1,47 @@
+
+   .form-control, .form-select {
+    background: rgba(15, 12, 29, 0.6) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--text-primary) !important;
+    font-family: 'Outfit', sans-serif;
+    transition: var(--transition);
+    padding: 0.6rem 1rem;
+  }
+  .form-control:focus, .form-select:focus {
+    background: rgba(15, 12, 29, 0.8) !important;
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15), 0 0 12px rgba(124, 58, 237, 0.08) !important;
+    color: var(--text-primary) !important;
+    outline: none;
+  }
+  .form-control::placeholder { color: var(--text-muted) !important; }
+  
+  .form-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .input-group-text {
+    background: rgba(15, 12, 29, 0.6) !important;
+    border: 1px solid var(--border-subtle) !important;
+    color: var(--text-secondary) !important;
+  }
+  
+  /* Login-specific form inputs */
+  .form-input {
+    background: rgba(15, 12, 29, 0.6) !important;
+    border: 1px solid var(--border-subtle) !important;
+    color: var(--text-primary) !important;
+    border-radius: var(--radius-sm) !important;
+    font-family: 'Outfit', sans-serif;
+  }
+  .form-input:focus {
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15), 0 0 12px rgba(124, 58, 237, 0.08) !important;
+    background: rgba(15, 12, 29, 0.8) !important;
+    color: var(--text-primary) !important;
+  }
+  .form-input:hover { border-color: rgba(139, 92, 246, 0.3) !important; }

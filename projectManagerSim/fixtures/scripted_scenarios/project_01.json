@@ -1,0 +1,15 @@
+[
+    {
+    "model": "projectManagerSim.scenario",
+    "pk": 1,
+    "fields": {
+        "type" : "SUPERVISOR_NOTICE",
+        "text": "Project Reviw happening in 3 Days! Be prepared!",
+        "decision": 0
+        }
+    }
+    
+]
+
+
+

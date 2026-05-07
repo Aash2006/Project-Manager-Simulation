@@ -1,0 +1,152 @@
+
+.tutorial-bubble {
+    border-radius: 40px !important;
+    border: 4px solid black !important; 
+    padding: 20px;
+}
+
+.tutorial-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.jerry-sprite {
+    width: 400px;
+    height: auto;
+}
+.tutorial-text-area {
+    flex-grow: 1;
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 1.2rem;
+    min-height: 80px;
+}
+
+.modal-footer.tutorial-footer {
+    border-top: none;
+    padding: 0 30px 20px 30px;
+    justify-content: space-between; 
+}
+
+.shepherd-jerry .shepherd-content {
+    border-radius: 30px !important;
+    /* border: 4px solid black !important; */
+    padding: 0px 5px 10px 5px;
+}
+.tour-jerry-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px !important;
+    min-width: 300px !important;
+}
+
+.tour-jerry-speaker {
+    flex-shrink: 0;
+    position: relative;
+    width: 120px;
+    height: auto;
+}
+.tour-jerry-sprite {
+    width: 120px !important;
+    max-width: 120px !important;
+    height: auto !important;
+}
+.tour-jerry-text {
+    flex-grow: 1;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    min-height: 60px;
+    line-height: 1.4;
+}
+
+
+.shepherd-jerry .shepherd-footer {
+    padding: 0 15px 0 15px;
+    border-top: none !important;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;  
+}
+.shepherd-jerry .shepherd-button {
+    border-radius: 20px !important;
+    padding: 4px 20px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    width: auto;
+}
+.shepherd-jerry .tour-prev-btn {
+    margin-left: auto; 
+    background-color: #6c757d !important;
+    color: white !important;
+    border: none !important;
+    margin-right: 0 !important;
+}
+.shepherd-jerry .tour-prev-btn:hover {
+    background-color: 
+#5a6268 !important;
+}
+.shepherd-jerry .tour-skip-btn {
+    margin-right: auto;  
+    background-color: transparent !important;
+    border: 1px solid #6c757d !important;
+    color: #6c757d !important;
+}
+.shepherd-jerry .tour-skip-btn:hover {
+    background-color: 
+#6c757d !important;
+    color: white !important;
+}
+.shepherd-jerry .tour-continue-btn {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-glow)) !important;
+    color: white !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35);
+}
+.shepherd-jerry .tour-continue-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45) !important;
+}
+
+.shepherd-jerry .tour-prev-btn,
+.shepherd-jerry .tour-continue-btn {
+    min-width: 110px;
+    justify-content: center;
+    text-align: center;
+}
+
+.shepherd-header{
+    padding: 0 !important;
+    line-height: 2em !important;
+}
+
+.shepherd-text{
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+
+.info-tooltip {
+    font-size: 0.85em;
+    cursor: help;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.info-tooltip:hover {
+    opacity: 1;
+}
+
+h4 .info-tooltip {
+    font-size: 0.65em;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.bugbar-title .info-tooltip {
+    font-size: 0.75em;
+    vertical-align: middle;
+}
+

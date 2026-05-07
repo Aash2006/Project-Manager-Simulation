@@ -1,0 +1,36 @@
+{
+    "decision_type" : "PROJECT",
+    "decision" : {
+        "title" : "Team Lunch",
+        "body" : "The team are asking if they can do a team lunch. It'd be good for morale!"
+    },
+    "deadline" : 2,
+    "percentage_chance" : 50,
+    "requirements" : {
+        "day_requirement" : 8
+    },
+    "options" : [
+        {
+            "text" : "Take the afternoon off, you've all earned it.",
+            "score_effect": -10,
+            "happiness_effect": 1.2,
+            "energy_effect": 1.5,
+            "stress_effect": 0.85,
+            "irritability_effect": 0.85,
+            "set_rest" : true
+        },
+        {
+            "text" : "Sure, but keep it to lunch.",
+            "score_effect": 0,
+            "happiness_effect": 1.08,
+            "energy_effect": 1.1,
+            "stress_effect": 0.95
+        },
+        {
+            "text" : "We don't have time for that right now.",
+            "score_effect": 0,
+            "happiness_effect": 0.92,
+            "irritability_effect": 1.1
+        }
+    ]
+}

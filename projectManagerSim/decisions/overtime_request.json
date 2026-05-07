@@ -1,0 +1,41 @@
+{
+    "decision_type": "CHARACTER",
+    "character_pk": "*a",
+    "percentage_chance": 5,
+    "decision": {
+        "title": "[NAME] - Rest Request",
+        "body": "[NAME]: I've been putting in extra hours this week. Honestly, could I get some time to recharge?"
+    },
+    "deadline": 2,
+    "requirements": {
+        "is_working_task" : true,
+        "stat_require": [
+            {
+                "stat": "energy",
+                "operator": "<",
+                "value": 50,
+                "character_pk": "*a"
+            }
+        ]
+    },
+    "options": [
+        {
+            "text": "Of course, take the day.",
+            "score_effect": 10,
+            "happiness_effect": 1.1,
+            "stress_effect": 0.75,
+            "energy_effect": 1.4,
+            "reliability_effect": 1.02,
+            "set_rest": true
+        },
+        {
+            "text": "We need you right now. Push through.",
+            "score_effect": -10,
+            "happiness_effect": 0.88,
+            "stress_effect": 1.3,
+            "energy_effect": 0.85,
+            "irritability_effect": 1.4,
+            "reliability_effect": 0.95
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : 6,
+    "decision" : {
+        "title" : "Reginald - Behind Your Back",
+        "body" : "Reginald: Oh! I wasn't actually telling everyone you were going to give them bad peer reviews, that's a misunderstanding."
+    },
+    "options" : [
+        {
+            "text" : "I'm calling a full team meeting to clear the air.",
+            "communication_skills_effect" : 1.3,
+            "irritability_effect" : 0.9,
+            "happiness_effect" : 1.1,
+            "reliability_effect_6" : 0.7,
+            "score_effect": 15
+        },
+        {
+            "text" : "It'll be you I'm giving the bad peer review.",
+            "irritability_effect_6" : 1.5,
+            "confidence_effect_6" : 0.8,
+            "score_effect": -5
+        }
+    ]
+}

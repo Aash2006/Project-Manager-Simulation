@@ -1,0 +1,22 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "percentage_chance" : 80,
+    "repeatable" : false,
+    "decision" : {
+        "title" : "[NAME] - No Show",
+        "body" : "[NAME] has blocked everyone's number."
+    },
+    "requirements" : {
+        "stat_require" : [
+            { "stat" : "reliability", "operator" : "<", "value" : 20, "character_pk" : "*a" }
+        ]
+    },
+    "options" : [
+        {
+            "text" : "We'll have to submit an MCE.",
+            "leave_team": "*a",
+            "score_effect": -300
+        }
+    ]
+}

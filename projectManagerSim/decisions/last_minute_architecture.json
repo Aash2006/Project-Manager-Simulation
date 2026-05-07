@@ -1,0 +1,37 @@
+{
+    "decision_type" : "PROJECT",
+    "decision" : {
+        "title" : "The TA's Pivot",
+        "body" : "TA: Hey I was looking at your work, really you'd be better off with NoSQL"
+    },
+    "percentage_chance" : 40,
+    "requirements" : {
+        "day_requirement" : 32
+    },
+    "options" : [
+        {
+            "text" : "Yeah right.",
+            "confidence_effect" : 1.2,
+            "happiness_effect" : 1.1,
+            "score_effect": 5
+        },
+        {
+            "text" : "Yeah sure!",
+            "stress_effect" : 1.6,
+            "energy_effect" : 0.5,
+            "teachability_effect" : 1.4,
+            "create_tasks" : [
+                {
+                    "task_type" : 4, 
+                    "name" : "Database Migration Rewrite",
+                    "time_to_complete": 5,
+                    "unlocks_at_percent":0,
+                    "number_of_people_required":3,
+                    "energy_cost": 8,
+                    "difficulty": 3
+                }
+            ],
+            "score_effect": 40
+        }
+    ]
+}

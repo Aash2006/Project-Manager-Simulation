@@ -1,0 +1,32 @@
+{
+    "decision_type" : "PROJECT",
+    "related_name" : "claude_strikeback",
+    "is_locked" : true,
+    "decision" : {
+        "title" : "Supervisor - LLM Usage",
+        "body" : "Supervisor: We've discovered some suspicious LLM usage on your codebase. Please revert these commits."
+    },
+    "percentage_chance" : 10,
+    "deadline" : 3,
+    "options" : [
+        {
+            "text" : "I promise I wrote it all.",
+            "score_effect": -30,
+            "happiness_effect": 0.72,
+            "stress_effect": 1.4,
+            "reliability_effect": 0.82,
+            "confidence_effect": 0.88,
+            "create_tasks" : [
+                {
+                    "task_type" : 2,
+                    "name" : "Rewrite LLM Infested Code",
+                    "time_to_complete": 3,
+                    "unlocks_at_percent": 0,
+                    "number_of_people_required": 2,
+                    "energy_cost": 10,
+                    "difficulty": 3
+                }
+            ]
+        }
+    ]
+}

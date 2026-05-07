@@ -1,0 +1,25 @@
+{
+    "decision_type" : "CHARACTER_RELATION",
+    "character_pk" : "*a",
+    "character_pk_2" : "?b",
+    "percentage_chance" : 3,
+    "decision" : {
+        "title" : "[NAME] & [NAME2] - Learning Moment",
+        "body" : "[NAME]: I'm teaching [NAME2] fun ways to use reinterpret cast!"
+    },
+    "options" : [
+        {
+            "text" : "And that's helpful how?",
+            "relation_change" : 5,
+            "teachability_effect_2" : 1.05,
+            "score_effect": -30
+        },
+        {
+            "text" : "Sounds fun!",
+            "relation_change" : 10,
+            "skill_level_effect_2" : 1.15,
+            "teachability_effect_2" : 1.1,
+            "score_effect": 30
+        }
+    ]
+}

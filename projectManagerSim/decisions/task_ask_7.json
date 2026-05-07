@@ -1,0 +1,28 @@
+{
+    "decision_type": "CHARACTER",
+    "character_pk": "*a",
+    "percentage_chance": 7,
+    "decision" : {
+        "title" : "[NAME] - Task Assignment",
+        "body" : "hey, could I do [TASKS.7]?"
+    },
+    "requirements" : {
+        "task_available" : 7,
+        "isnt_working_task" : true
+    },
+    "deadline": 2,
+    "options": [
+        {
+            "text": "Maybe something else?",
+            "score_effect": 0,
+            "happiness_effect": 0.9
+        },
+        {
+            "text": "Sure!",
+            "score_effect": 7,
+            "happiness_effect": 1.06,
+            "stress_effect": 0.92,
+            "task_assign_result" : 7
+        }
+    ]
+}

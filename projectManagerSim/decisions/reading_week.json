@@ -1,0 +1,36 @@
+{
+    "decision_type" : "PROJECT",
+    "decision" : {
+        "title" : "Reading Week",
+        "body" : "It's reading week. What's the plan?"
+    },
+    "deadline" : 2,
+    "requirements" : {
+        "day_requirement" : 17
+    },
+    "options" : [
+        {
+            "text" : "Everyone take some time off. We'll pick it back up after.",
+            "score_effect": -20,
+            "happiness_effect": 1.2,
+            "energy_effect": 1.35,
+            "stress_effect": 0.75,
+            "irritability_effect": 0.8,
+            "set_rest": true
+        },
+        {
+            "text" : "Take it easy, but keep things ticking over.",
+            "score_effect": -10,
+            "happiness_effect": 1.1,
+            "energy_effect": 1.15,
+            "stress_effect": 0.88
+        },
+        {
+            "text" : "Reading week is a myth. Keep working.",
+            "score_effect": 20,
+            "happiness_effect": 0.88,
+            "stress_effect": 1.2,
+            "irritability_effect": 1.15
+        }
+    ]
+}

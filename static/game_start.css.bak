@@ -1,0 +1,178 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .game-start-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #3b5cef 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .game-start-card {
+            background: white;
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 32px;
+        }
+
+        .save-info {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .save-info h3 {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .save-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 0.875rem;
+            color: #718096;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        .last-played {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #718096;
+            margin: 0;
+        }
+
+        .no-save-message {
+            text-align: center;
+            padding: 32px 0;
+            color: #4a5568;
+            font-size: 1.1rem;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-large {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #4a5568;
+            border: 2px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: #f7fafc;
+            border-color: #cbd5e0;
+            transform: translateY(-2px);
+            color: #4a5568;
+            text-decoration: none;
+        }
+
+        .icon {
+            font-style: normal;
+            font-size: 1.2rem;
+        }
+
+        .menu-footer {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .link-secondary {
+            color: #718096;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .link-secondary:hover {
+            color: #4a5568;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .game-start-card {
+                padding: 32px 24px;
+            }
+
+            .game-title {
+                font-size: 1.5rem;
+            }
+
+            .save-stats {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }

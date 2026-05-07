@@ -1,0 +1,36 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : 8,
+    "repeatable" : false,
+    "decision" : {
+        "title" : "Amelia - Total Redesign",
+        "body" : "Amelia: Okay I was doing great on my task until someone said the UI looked a bit 2012 now I need to fix that."
+    },
+    "options" : [
+        {
+            "text" : "The current design is perfect.",
+            "confidence_effect" : 1.3,
+            "happiness_effect" : 1.2,
+            "reliability_effect" : 1.2,
+            "score_effect": 10
+        },
+        {
+            "text" : "Yeah yeah yeah start over.",
+            "teachability_effect" : 1.2,
+            "energy_effect" : 0.7,
+            "reliability_effect" : 0.6,
+            "score_effect": -15,
+            "create_tasks" : [
+                {
+                    "task_type" : 1, 
+                    "name" : "UI Rework",
+                    "time_to_complete": 3,
+                    "unlocks_at_percent":0,
+                    "number_of_people_required":1,
+                    "energy_cost": 8,
+                    "difficulty": 3
+                }
+            ]
+        }
+    ]
+}

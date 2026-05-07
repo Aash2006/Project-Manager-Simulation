@@ -1,0 +1,21 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "percentage_chance" : 10,
+    "repeatable" : false,
+    "decision" : {
+        "title" : "[NAME] - Ice Cream?",
+        "body" : "[NAME]: Hey, I saw you working pretty hard and I wanted to get you some ice-cream."
+    },
+    "requirements" : {
+        "stat_require" : [
+            { "stat" : "happiness", "operator" : ">", "value" : 90, "character_pk" : "*a" }
+        ]
+    },
+    "options" : [
+        {
+            "text" : "Thanks!",
+            "score_effect": 10
+        }
+    ]
+}

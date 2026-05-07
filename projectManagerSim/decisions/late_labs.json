@@ -1,0 +1,28 @@
+{
+    "decision_type" : "CHARACTER_RELATION",
+    "character_pk" : "*a",
+    "character_pk_2" : "?b",
+    "percentage_chance" : 25,
+    "decision" : {
+        "title" : "[NAME] & [NAME2] - 3 AM Grind",
+        "body" : "[NAME]: The labs are closing soon but me and [NAME2] still got some work to do."
+    },
+    "options" : [
+        {
+            "text" : "I'll grab you guys a monster each.",
+            "relation_change" : 25,
+            "energy_effect" : 1.3,
+            "energy_effect_2" : 1.3,
+            "stress_effect" : 1.1,
+            "score_effect": 50
+        },
+        {
+            "text" : "Go home and sleep!",
+            "relation_change" : 5,
+            "energy_effect" : 1.5,
+            "energy_effect_2" : 1.5,
+            "reliability_effect" : 0.8,
+            "score_effect": 0
+        }
+    ]
+}

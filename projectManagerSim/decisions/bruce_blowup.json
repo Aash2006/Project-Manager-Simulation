@@ -1,0 +1,55 @@
+{
+    "decision_type": "CHARACTER",
+    "character_pk": 4,
+    "percentage_chance": 30,
+    "decision": {
+        "title": "Bruce - Blew Up in the Group Meeting",
+        "body": "Bruce completely lost it during the group catch-up. He talked over everyone, swore at least once, and stormed off before it ended. The rest of the group went dead silent."
+    },
+    "repeatable": true,
+    "deadline": 1,
+    "related_name": "bruce_outburst",
+    "requirements": {
+        "stat_require": [
+            {
+                "stat": "irritability",
+                "operator": ">",
+                "value": 150,
+                "character_pk": 4
+            }
+        ]
+    },
+    "options": [
+        {
+            "text": "Message him privately and talk it through.",
+            "score_effect": 1,
+            "irritability_effect": 0.75,
+            "stress_effect": 0.88,
+            "happiness_effect": 1.05,
+            "confidence_effect": 0.95
+        },
+        {
+            "text": "Tell him he needs to apologise to the group.",
+            "score_effect": 0,
+            "irritability_effect": 1.2,
+            "stress_effect": 1.15,
+            "happiness_effect": 0.85,
+            "confidence_effect": 0.88,
+            "reliability_effect": 1.05
+        },
+        {
+            "text": "Threaten to flag it to the module tutor.",
+            "score_effect": -1,
+            "irritability_effect": 1.45,
+            "stress_effect": 1.3,
+            "happiness_effect": 0.72,
+            "reliability_effect": 0.9
+        },
+        {
+            "text": "Let it slide — he'll calm down.",
+            "score_effect": -2,
+            "irritability_effect": 1.1,
+            "happiness_effect": 0.92
+        }
+    ]
+}

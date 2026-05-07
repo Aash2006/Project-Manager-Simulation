@@ -1,0 +1,58 @@
+[
+    {
+    "model": "projectManagerSim.characterscenario",
+    "pk": 70,
+    "fields": {
+        "character": 7,
+        "type" : "",
+        "decision": 70,
+        "text": ""
+        }
+    },
+
+    {
+    "model": "projectManagerSim.decision",
+    "pk": 70,
+    "fields": {
+        "game_save" : [],
+        "title": "Message Response",
+        "body": "How would you like to respond?"
+        }
+    },
+
+    {
+    "model": "projectManagerSim.characterscenariooption",
+    "pk": 701,
+    "fields": {
+        "decision": 70,
+        "text": "Ignore it",
+        "score_effect": -1,
+        "happiness_effect": -5,
+        "energy_effect": -5,
+        "communication_skills_effect": -5,
+        "rapport_effect": -5
+        }
+    },
+    {
+    "model": "projectManagerSim.characterscenariooption",
+    "pk": 702,
+    "fields": {
+        "decision": 70,
+        "text": "\"What makes you say that?\"",
+        "score_effect": 1,
+        "happiness_effect": 5,
+        "energy_effect": 5,
+        "communication_skills_effect": 5,
+        "rapport_effect": 5
+        }
+    },
+    {
+    "model": "projectManagerSim.characterscenariooption",
+    "pk": 703,
+    "fields": {
+        "decision": 70,
+        "text": "\"And you think complaining with help?\"",
+        "rapport_effect": -3
+        }
+    }
+]

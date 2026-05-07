@@ -1,0 +1,24 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : 5,
+    "decision" : {
+        "title" : "Jamie - Brutal Email",
+        "body" : "Jamie: In my defense, everyone's code really was terrible, we won't get a good grade at this rate."
+    },
+    "options" : [
+        {
+            "text" : "Seriously?",
+            "irritability_effect" : 1.3,
+            "communication_skills_effect" : 1.2,
+            "happiness_effect" : 0.8,
+            "score_effect": 5
+        },
+        {
+            "text" : "Yeah you're right, we should work on it.",
+            "confidence_effect" : 1.2,
+            "skill_level_effect" : 1.1,
+            "communication_skills_effect" : 0.8,
+            "score_effect": 10
+        }
+    ]
+}

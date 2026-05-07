@@ -1,0 +1,22 @@
+{
+    "decision_type" : "CHARACTER_RELATION",
+    "character_pk" : "*a",
+    "character_pk_2" : "?b",
+    "percentage_chance" : 15,
+    "decision" : {
+        "title" : "[NAME] & [NAME2] - Wanna get drinks?",
+        "body" : "[NAME]: Me and [NAME2] are going out for drinks tonight, wanna join?"
+    },
+    "relationship_score": "friends",
+    "options" : [
+        {
+            "text" : "I'm good, have fun!",
+            "relation_change" : 15,
+            "happiness_effect" : 1.2,
+            "happiness_effect_2" : 1.2,
+            "energy_effect" : 0.8,
+            "energy_effect_2" : 0.8,
+            "score_effect": 5
+        }
+    ]
+}

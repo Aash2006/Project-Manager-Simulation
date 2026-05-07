@@ -1,0 +1,101 @@
+{% extends "base_body.html" %}
+
+{% block title %}Team Relationships{% endblock %}
+{% block page_header %}Relationships{% endblock %}
+
+{% block page_body %}
+{% load static %}
+    {% include 'partials/messages.html' %}
+
+{% comment %}<link rel="stylesheet" href="{% static 'gameplay_dashboard/css/game_relationships.css' %}">{% endcomment %}
+
+<div class="relationships-container">
+    {% if not team_characters %}
+    <div class="no-team-message">
+        <h3>No team selected yet</h3>
+        <p>Start a new game to build your team!</p>
+    </div>
+    {% else %}
+
+    <!-- Character Selector -->
+    <div class="character-selector">
+        <label for="character-select">Select Team Member:</label>
+        <select id="character-select" onchange="changeCharacter(this.value)">
+            {% for save_char in team_characters %}
+            <option value="{{ save_char.character.id }}" 
+                    {% if selected_character.id == save_char.character.id %}selected{% endif %}>
+                {{ save_char.character.get_full_name }} - {{ save_char.character.get_primary_role_display }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Selected Character Info -->
+    <div class="selected-character-info">
+        <h2>{{ selected_character.get_full_name }}</h2>
+        <p class="character-role">{{ selected_character.get_role_display_full }}</p>
+        
+        {% if selected_character.get_traits_list %}
+        <div class="character-traits">
+            <strong>Traits:</strong>
+            {% for trait in selected_character.get_traits_list %}
+            <span class="trait-badge">{{ trait }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Relationships -->
+    <div class="relationships-section">
+        <h3>{{ selected_character.first_name }}'s Relationships</h3>
+        
+        {% if relationships %}
+            {% for rel in relationships %}
+            <div class="relationship-card">
+                <div class="relationship-header">
+                    <span class="relationship-name">
+                        {{ rel.icon }} {{ rel.character.get_full_name }}
+                    </span>
+                    <span class="badge {{ rel.badge_class }}">
+                        {{ rel.type_display }}
+                    </span>
+                </div>
+                
+                <div class="relationship-details">
+                    <p>{{ rel.description }}</p>
+                    
+                    {% if rel.energy_modifier != 1.0 %}
+                    <div class="energy-impact {% if rel.energy_modifier < 1.0 %}positive{% else %}negative{% endif %}">
+                        {% if rel.energy_modifier < 1.0 %}
+                        ✓ Work together: {{ rel.energy_modifier_percent }} energy cost (Efficient!)
+                        {% else %}
+                        ⚠️ Work together: {{ rel.energy_modifier_percent }} energy cost (Costly!)
+                        {% endif %}
+                    </div>
+                    {% else %}
+                    <div class="energy-impact neutral">
+                        No energy impact when working together
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p style="text-align: center; color: var(--text-muted); padding: 2rem;">
+                No relationships defined with teammates.
+            </p>
+        {% endif %}
+    </div>
+
+    <!-- Best Partners -->
+    
+    {% endif %}
+</div>
+
+<script>
+function changeCharacter(characterId) {
+    // Reload page with new character selected
+    window.location.href = `?character_id=${characterId}`;
+}
+</script>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block page_body %}
+<div class="container-fluid">
+    <!-- Row 1 -->
+    <div class="row mt-2 mb-2">
+        <div class="col-12">
+            <h1>{{ page_title }}</h1>
+        </div>
+    </div>
+    <!-- Row 2 -->
+    <div class="row mt-2 mb-2">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        {% block headers %} {% endblock %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for object in object_list %}
+                    <tr>
+                        {% block row %}{% endblock %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Row 3 -->
+    <div class="row mt-2 mb-2">
+        <div class="col-2">
+            <a href="{% url 'admin_statistics' %}" class="btn btn-outline-primary w-100">Back</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+<a class="load-task btn text-decoration-none w-100"
+    data-name="{{ task.name }}"
+    data-type="{{ task.task_type }}"
+    data-completed="{{ task.is_completed }}"
+    data-requirement="{{ task.number_of_people_required }}"
+    data-duration="{{ task.time_to_complete }}"
+    data-daysworked="{{ task.days_worked }}"
+    data-assignees="{% filter force_escape %}{% include 'partials/task_assignees_list.html' with task=task %}{% endfilter %}"
+    data-assignlist="{% filter force_escape %}{% include 'partials/task_assign_menu.html' with save_characters=save_characters task=task %}{% endfilter %}"
+><h6>
+    {{ task.name }}
+    <small class="text-muted"><i>{{ task.task_type }}</i></small>
+</h6></a>

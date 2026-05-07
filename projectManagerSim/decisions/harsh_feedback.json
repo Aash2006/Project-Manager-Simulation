@@ -1,0 +1,39 @@
+{
+    "decision_type": "PROJECT",
+    "decision": {
+        "title": "Tutor Tore Apart the Progress Report",
+        "body": "Feedback just dropped on the progress report. The tutor isn't impressed, noting a lack of ambition, unclear scope, and 'Unclear attribution of features'. Everyone has read it."
+    },
+    "deadline": 3,
+    "percentage_chance" : 30,
+    "related_name": "decision_harsh_feedback",
+    "requirements": {
+        "day_requirement": 20
+    },
+    "options": [
+        {
+            "text": "Hold a group meeting to address every point together.",
+            "score_effect": 20,
+            "stress_effect": 1.1,
+            "happiness_effect": 0.92,
+            "confidence_effect": 0.9,
+            "communication_skills_effect": 1.12,
+            "teachability_effect": 1.1
+        },
+        {
+            "text": "Quietly rescope and adjust without making a big deal of it.",
+            "score_effect": 10,
+            "stress_effect": 1.05,
+            "confidence_effect": 0.92,
+            "happiness_effect": 0.95
+        },
+        {
+            "text": "Reassure everyone it's fine and push on as planned.",
+            "score_effect": -20,
+            "confidence_effect": 0.82,
+            "stress_effect": 1.2,
+            "happiness_effect": 0.85,
+            "reliability_effect": 0.9
+        }
+    ]
+}

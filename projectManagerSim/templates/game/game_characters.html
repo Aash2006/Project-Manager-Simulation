@@ -1,0 +1,21 @@
+{% extends 'base_body.html' %}
+
+{% block title %} Teammates {% endblock %}
+{% block page_header %} Your Team {% endblock %}
+
+{% block page_body %}
+{% load static %}
+    <script src="{% static 'gameplay_dashboard/js/resting.js' %}"></script>
+    <script src="{% static 'gameplay_dashboard/js/gameplay_characters.js' %}"></script>
+    <script src="{% static 'gameplay_dashboard/js/tasks.js' %}"></script>
+    {% include 'partials/messages.html' %}
+<div class="container-fluid">
+    <div class="row g-4 align-items-start"> 
+        {% for c in characters %}
+            <div class="col-12 col-md-6"> 
+                {% include 'partials/teammate_card.html' with sc=c character=c.character%}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

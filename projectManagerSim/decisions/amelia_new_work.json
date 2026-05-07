@@ -1,0 +1,38 @@
+{
+    "decision_type": "CHARACTER",
+    "character_pk": 8,
+    "percentage_chance": 25,
+    "decision": {
+        "title": "Amelia - Doing Everyone Else's Tasks",
+        "body": "Amelia: They said they were busy, so I offered... I don't mind, really..."
+    },
+    "deadline": 2,
+    "related_name": "amelia_overloaded",
+    "options": [
+        {
+            "text": "Well you offered so..",
+            "score_effect": -1,
+            "energy_effect": 0.75,
+            "stress_effect": 1.3,
+            "happiness_effect": 0.85,
+            "confidence_effect": 0.82
+        },
+        {
+            "text": "No way, we're reassigning those tasks back to them.",
+            "score_effect": 1,
+            "stress_effect": 0.8,
+            "energy_effect": 1.2,
+            "happiness_effect": 1.05,
+            "confidence_effect": 1.08,
+            "unassign_task": true
+        },
+        {
+            "text": "Thank you, really. I'll make sure everyone in the group knows",
+            "score_effect": 1,
+            "happiness_effect": 1.18,
+            "confidence_effect": 1.12,
+            "stress_effect": 0.92,
+            "energy_effect": 0.9
+        }
+    ]
+}

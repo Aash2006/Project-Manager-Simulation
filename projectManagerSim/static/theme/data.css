@@ -1,0 +1,70 @@
+.table { color: var(--text-primary) !important; border-color: var(--border-subtle) !important; }
+.table th {
+  color: var(--text-muted) !important;
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom-color: var(--border-subtle) !important;
+}
+.table td {
+  color: var(--text-secondary) !important;
+  border-bottom-color: var(--border-subtle) !important;
+  vertical-align: middle;
+}
+.table tbody tr:hover { background: rgba(139, 92, 246, 0.04) !important; }
+
+.list-group-item {
+  background: transparent !important;
+  border-color: var(--border-subtle) !important;
+  color: var(--text-secondary) !important;
+  transition: var(--transition);
+}
+.list-group-item:hover {
+  background: rgba(139, 92, 246, 0.04) !important;
+  color: var(--text-primary) !important;
+}
+.list-group-item.active {
+  background: rgba(124, 58, 237, 0.1) !important;
+  border-color: var(--accent-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dropdown-menu {
+  background: var(--bg-dark) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-lg);
+}
+.dropdown-item {
+  color: var(--text-secondary) !important;
+  transition: var(--transition);
+  font-size: 0.875rem;
+}
+.dropdown-item:hover {
+  background: rgba(139, 92, 246, 0.06) !important;
+  color: var(--text-primary) !important;
+}
+.dropdown-divider { border-color: var(--border-subtle) !important; }
+
+.alert { border-radius: var(--radius-md) !important; border: none !important; font-size: 0.875rem; }
+.alert-success {
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: #6ee7b7 !important;
+  border-left: 3px solid var(--accent-success) !important;
+}
+.alert-danger {
+  background: rgba(239, 68, 68, 0.1) !important;
+  color: #fca5a5 !important;
+  border-left: 3px solid var(--accent-danger) !important;
+}
+.alert-warning {
+  background: rgba(245, 158, 11, 0.1) !important;
+  color: #fcd34d !important;
+  border-left: 3px solid var(--accent-warning) !important;
+}
+.alert-info {
+  background: rgba(6, 182, 212, 0.1) !important;
+  color: #67e8f9 !important;
+  border-left: 3px solid var(--accent-cyan) !important;
+}

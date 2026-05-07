@@ -1,0 +1,25 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : 1,
+    "repeatable" : false,
+    "decision" : {
+        "title" : "Bella - Work!",
+        "body" : "Bella: Unless you're buying me a coffee, I'm headed home now."
+    },
+    "requirements" : {
+        "is_working_task" : true
+    },
+    "options" : [
+        {
+            "text" : "You'd barely do anything anyways.",
+            "reliability_effect" : 0.9,
+            "score_effect": 0
+        },
+        {
+            "text" : "Flat White or Mocha?",
+            "happiness_effect" : 1.2,
+            "reliability_effect" : 1.1,
+            "score_effect": -5
+        }
+    ]
+}

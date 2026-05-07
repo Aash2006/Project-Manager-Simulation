@@ -1,0 +1,54 @@
+@startuml
+actor Regular_User
+
+class Template {
+  + render(context): HTML
+}
+
+class URL {
+  + route: String
+}
+
+class View {
+  + get(request): Response
+  + post(request): Response
+}
+
+class Model {
+  + save()
+  + update()
+}
+
+Client --> URL
+URL --> View : routes to
+View --> Model : reads/writes
+View --> Template
+
+
+
+class LoginView{
+    + get(request)
+  + post(request)
+}
+
+
+class LoginForm {
+    + username
+    + password
+}
+  
+
+LoginView --> LoginForm : validates
+LoginView --> "login.html" : renders
+LoginView --> LoginURL : redirects
+
+
+
+Regular_User --> Login
+Login --> Register
+Register --> Login
+
+
+
+
+@enduml

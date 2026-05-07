@@ -1,0 +1,26 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "percentage_chance" : 5,
+    "repeatable" : true,
+    "decision" : {
+        "title" : "[NAME] - I broke a test!",
+        "body" : "[NAME]: Sorry, I broke a few tests!"
+    },
+    "options" : [
+        {
+            "text" : "We'll fix them together.",
+            "create_tasks" : [
+                {
+                    "task_type" : 5, 
+                    "name" : "Fix Tests",
+                    "time_to_complete": 1,
+                    "unlocks_at_percent":0,
+                    "number_of_people_required":1,
+                    "energy_cost": 5,
+                    "difficulty": 1
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+# Core Django framework and dependencies
+Django==5.2.11
+asgiref==3.11.0      # ASGI support for Django
+sqlparse==0.5.5      # SQL parsing library used by Django
+django-extensions==3.2.1     # Extra management commands and developer utilities
+django-widget-tweaks==1.5.1   # Allows easy manipulation of form widgets in templates
+django-polymorphic==4.10.4   # Allows polymorphic models (inheritance for Django models)
+
+# Testing tools
+coverage==7.13.2              # Test coverage measurement tool
+Faker==40.1.2                 # Fake data generator for testing / seeding
+pytest==8.3.4                 # The core test runner
+pytest-django==4.12.0        # Django integration for pytest
+pytest-cov==7.0.0            # Glue between pytest and coverage
+pytest-html==4.1.1          # Generates detailed HTML reports for pytest results
+selenium>=4.20.0            # Frontend testing
+splinter>=0.21.0            # Wrapper for Frontend Testing
+webdriver-manager>=4.0.1    # Frontend Driver Management
+
+# Deployment
+gunicorn==21.2.0 # Web Server Gateway
+whitenoise==6.4.0 # Serves static files efficiently in production
+

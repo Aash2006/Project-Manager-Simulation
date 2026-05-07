@@ -1,0 +1,24 @@
+{
+    "decision_type": "CHARACTER",
+    "character_pk": "*a",
+    "percentage_chance": 5,
+    "repeatable": true,
+    "decision": {
+        "title": "[NAME] - Checking In",
+        "body": "[NAME]: Just wanted to say I'm on track with everything. No issues at the moment."
+    },
+    "deadline": 1,
+    "options": [
+        {
+            "text": "👍",
+            "score_effect": 0,
+            "happiness_effect": 0.95
+        },
+        {
+            "text": "Thanks for the update!",
+            "score_effect": 5,
+            "happiness_effect": 1.05,
+            "reliability_effect": 1.05
+        }
+    ]
+}

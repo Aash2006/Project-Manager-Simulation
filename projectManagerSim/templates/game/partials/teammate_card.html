@@ -1,0 +1,173 @@
+{% load static %}
+<div class="card character-card h-100 {% if sc.is_resting %}is-resting{% endif %}" id="character-card-{{ sc.id }}">
+  <div class="card-body d-flex flex-column">
+
+    <!-- Header: Name + Status Badge -->
+    <div class="d-flex align-items-center justify-content-between mb-2">
+      <div>
+        <h5 class="card-title fw-bold mb-0">{{ sc.character.first_name }} {{ sc.character.last_name }}</h5>
+        <small class="text-muted">{{ sc.character.get_role_display_full }}</small>
+      </div>
+      {% if sc.is_resting %}
+        <span class="badge" style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25); color: #10b981; font-size: 0.7rem; display: flex; align-items: center; gap: 3px;">
+          <span style="font-size: 0.55rem; opacity: 0.5;">z</span><span style="font-size: 0.7rem; opacity: 0.75;">z</span><span style="font-size: 0.85rem;">Z</span>
+          RESTING
+        </span>
+      {% else %}
+        <span class="badge" style="background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.25); color: #06b6d4; font-size: 0.7rem;">
+          WORKING
+        </span>
+      {% endif %}
+    </div>
+
+    <!-- Task info -->
+    {% if sc.is_resting %}
+      <div class="rounded-3 p-2 mb-2 text-center" style="border: 1px solid rgba(16,185,129,0.1);">
+        <span style="color: #6ee7b7; font-style: italic; font-size: 0.85rem;">Recovering energy...</span>
+      </div>
+    {% elif sc.task_assigned %}
+      <p class="card-text text-muted small mb-1">{{ sc.task_assigned.name }}</p>
+      <div class="progress mb-2" style="height: 5px;">
+        <div class="progress-bar" style="width: {{ sc.task_assigned.percentage_done }}%"></div>
+      </div>
+    {% else %}
+      <p class="card-text small mb-2" style="color: var(--text-muted); font-style: italic;">No task currently assigned...</p>
+    {% endif %}
+
+    <hr style="border-color: var(--border-subtle); margin: 0.5rem 0;">
+
+    <!-- FRONT CONTENT -->
+    <div class="card-content-front" id="front-{{ sc.id }}" style="transition: opacity 0.3s ease-in-out; min-height: 200px; max-height: 200px; overflow-y: auto;">
+      <div class="row g-2 mb-2">
+        <div class="col-6">
+          <div class="d-flex justify-content-between mb-1">
+            <small class="text-muted">Energy</small>
+            <small class="fw-bold" style="color: {% if sc.current_energy > 70 %}var(--accent-success){% elif sc.current_energy > 30 %}var(--accent-warning){% else %}var(--accent-danger){% endif %}">{{ sc.current_energy }}%</small>
+          </div>
+          <div class="progress" style="height: 4px;">
+            <div class="progress-bar" style="width: {{ sc.current_energy }}%; background: {% if sc.current_energy > 70 %}linear-gradient(90deg, #10b981, #34d399){% elif sc.current_energy > 30 %}linear-gradient(90deg, #f59e0b, #d97706){% else %}linear-gradient(90deg, #ef4444, #dc2626){% endif %} !important;"></div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="d-flex justify-content-between mb-1">
+            <small class="text-muted">Happiness</small>
+            <small class="fw-bold" style="color: {% if sc.current_happiness > 70 %}var(--accent-success){% elif sc.current_happiness > 30 %}var(--accent-warning){% else %}var(--accent-danger){% endif %}">{{ sc.current_happiness }}%</small>
+          </div>
+          <div class="progress" style="height: 4px;">
+            <div class="progress-bar" style="width: {{ sc.current_happiness }}%; background: {% if sc.current_happiness > 70 %}linear-gradient(90deg, #10b981, #34d399){% elif sc.current_happiness > 30 %}linear-gradient(90deg, #f59e0b, #d97706){% else %}linear-gradient(90deg, #ef4444, #dc2626){% endif %} !important;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-2">
+        <div class="d-flex justify-content-between mb-1">
+          <small class="text-muted">Work/Life Balance</small>
+          <small class="fw-bold" style="color: {% if sc.character.work_life_balance >= 80 %}var(--accent-success){% elif sc.character.work_life_balance >= 60 %}#10b981{% elif sc.character.work_life_balance >= 40 %}#eab308{% elif sc.character.work_life_balance >= 20 %}#f59e0b{% else %}var(--accent-danger){% endif %}">{{ sc.character.work_life_balance }}%</small>
+        </div>
+        <div class="progress" style="height: 4px;">
+          <div class="progress-bar" style="width: {{ sc.character.work_life_balance }}%; background: {% if sc.character.work_life_balance >= 80 %}linear-gradient(90deg, #6ee7b7, #34d399){% elif sc.character.work_life_balance >= 60 %}linear-gradient(90deg, #34d399, #10b981){% elif sc.character.work_life_balance >= 40 %}linear-gradient(90deg, #fbbf24, #f59e0b){% elif sc.character.work_life_balance >= 20 %}linear-gradient(90deg, #fb923c, #f97316){% else %}linear-gradient(90deg, #f87171, #ef4444){% endif %} !important;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BACK CONTENT -->
+    <div class="card-content-back" id="back-{{ sc.id }}" style="display: none; opacity: 0; transition: opacity 0.3s ease-in-out; min-height: 200px; max-height: 200px; overflow-y: auto;">
+      <div class="mb-2">
+        <small class="text-muted d-block mb-1">Description</small>
+        <p style="font-size: 0.85rem; color: var(--text-primary); margin: 0;">{{ sc.character.description }}</p>
+      </div>
+      
+      <div class="mb-2">
+        <small class="text-muted d-block mb-1">Personality</small>
+        <p style="font-size: 0.85rem; color: var(--text-primary); margin: 0;">
+          {{ sc.character.get_personality_type_icon }} {{ sc.character.get_personality_type_display }}
+        </p>
+      </div>
+      
+      {% if sc.character.get_traits_list %}
+      <div class="mb-2">
+        <small class="text-muted d-block mb-1">Traits</small>
+        {% for trait in sc.character.get_traits_list %}
+          <span class="badge bg-primary fw-light" style="font-size: 0.7rem; margin-right: 0.25rem;">{{ trait }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div style="max-height: 100px; overflow-y: auto;">
+        <small class="text-muted d-block mb-1">Relationships</small>
+        {% for rel in relationships %}
+          {% if rel.0 == sc.id %}
+            {% for rm in rel.1 %}
+              <div class="d-flex justify-content-between align-items-center mb-1" style="padding: 0.35rem 0.5rem; border-radius: 8px; border: 1px solid var(--border-subtle);">
+                <span style="color: var(--text-primary); font-size: 0.85rem;">{{ rm.icon }} {{ rm.character }}</span>
+                <span class="badge {{ rm.badge_class }}" style="font-size: 0.7rem;">{{ rm.type_display }}</span>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="mt-auto">
+      <div class="d-flex gap-2 mt-2">
+        <button class="btn btn-outline-primary w-100 fw-bold" onclick="fadeToggle({{ sc.id }})">
+          <span id="btn-text-{{ sc.id }}">Info</span>
+        </button>
+        
+        <button class="btn btn-outline-light w-100 fw-bold set-resting-btn"
+          data-save-character-id="{{ sc.id }}"
+          style="display: {% if sc.is_resting and not sc.lock_rest %}inline-block{% else %}none{% endif %};"
+          data-resting="false">
+          Wake up
+        </button>
+        
+        <button class="btn btn-outline-secondary w-100 fw-bold set-resting-btn"
+          data-save-character-id="{{ sc.id }}"
+          style="display: {% if sc.is_resting %}none{% else %}inline-block{% endif %};"
+          data-resting="true">
+          Rest
+        </button>
+        
+        <button class="btn btn-outline-danger w-100 fw-bold remove-task-btn"
+          data-save-character-id="{{ sc.id }}"
+          style="display: {% if sc.task_assigned and not sc.lock_task %}inline-block{% else %}none{% endif %};">
+          Remove
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function fadeToggle(id) {
+  var front = document.getElementById('front-' + id);
+  var back = document.getElementById('back-' + id);
+  var btnText = document.getElementById('btn-text-' + id);
+  
+  if (front.style.opacity === '0') {
+    // Show front
+    back.style.opacity = '0';
+    setTimeout(function() {
+      back.style.display = 'none';
+      front.style.display = 'block';
+      setTimeout(function() {
+        front.style.opacity = '1';
+      }, 10);
+    }, 300);
+    btnText.textContent = 'Info';
+  } else {
+    // Show back
+    front.style.opacity = '0';
+    setTimeout(function() {
+      front.style.display = 'none';
+      back.style.display = 'block';
+      setTimeout(function() {
+        back.style.opacity = '1';
+      }, 10);
+    }, 300);
+    btnText.textContent = 'Back';
+  }
+}
+</script>

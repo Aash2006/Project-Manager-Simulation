@@ -1,0 +1,23 @@
+{
+    "decision_type" : "PROJECT",
+    "decision" : {
+        "title" : "Supervisor - Peer Evaluation Reminder",
+        "body" : "Supervisor: Peer Evaluation closes soon, make sure everyone gives honest answers!"
+    },
+    "requirements" : {
+        "day_requirement" : 30
+    },
+    "options" : [
+        {
+            "text" : "Honesty is the best policy!",
+            "communication_skills_effect" : 1.2,
+            "score_effect": 10
+        },
+        {
+            "text" : "Everyone gets 5/5s.",
+            "happiness_effect": 1.2,
+            "reliability_effect" : 0.8,
+            "score_effect": -5
+        }
+    ]
+}

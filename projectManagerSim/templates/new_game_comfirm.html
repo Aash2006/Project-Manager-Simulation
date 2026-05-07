@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Game - Project Manager Simulator</title>
+    <link rel="stylesheet" href="{% static 'new_game_confirm.css' %}">
+    <title>Project Management Simulator: New Game</title>
+</head>
+<body>
+    <div class="confirm-container">
+        <div class="confirm-card">
+            <div class="warning-icon">⚠️</div>
+            <h1 class="confirm-title">Start New Game?</h1>
+            <p class="warning-message">Warning: This action cannot be undone!</p>
+            
+            <div class="save-details">
+                <h3>Current Game Progress</h3>
+                <div class="save-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Day</span>
+                        <span class="stat-value">{{ active_save.current_day }}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Progress</span>
+                        <span class="stat-value">{{ active_save.progress_percent }}%</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="danger-text">
+                Starting a new game will <strong>permanently delete</strong> your current progress. 
+                All your decisions, team progress, and game data will be lost.
+            </p>
+
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="confirm" value="1">
+                <div class="button-group">
+                    <a href="{% url 'game_start_new' %}" class="btn btn-cancel">
+                        ← Cancel
+                    </a>
+                    <button type="submit" class="btn btn-danger">
+                        Start New Game
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

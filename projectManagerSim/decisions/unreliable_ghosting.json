@@ -1,0 +1,22 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "decision" : {
+        "title" : "Supervisor - [NAME] worries",
+        "body" : "Supervisor: [NAME] has been marked absent for the last three meetings, they may have gone off the grid."
+    },
+    "requirements" : {
+        "stat_require" : [
+            { "stat" : "reliability", "operator" : "<", "value" : 50, "character_pk" : "*a" }
+        ]
+    },
+    "options" : [
+        {
+            "text" : "What do I do now?",
+            "energy_effect" : 0.25,
+            "set_rest" : true,
+            "unassign_task" : true,
+            "score_effect": -10
+        }
+    ]
+}

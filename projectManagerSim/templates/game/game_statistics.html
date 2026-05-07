@@ -1,0 +1,121 @@
+{% extends "base_body.html" %}
+
+{% block title %} Statistics {% endblock %}
+{% block page_header %}Statistics{% endblock %}
+
+{% block page_body %}
+{% load static %}
+    {% include 'partials/messages.html' %}
+
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Overall Progress</div>
+                <div class="card-body">
+                    <p><strong>Days Played:</strong> {{ total_days_played }}</p>
+                    <p><strong>Progress:</strong> {{ save.progress_percent }}%</p>
+                    <p><strong>Score:</strong> {{ save.score }}</p>
+                    <p><strong>Tasks Completed:</strong> {{ tasks_completed }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">Performance</div>
+                <div class="card-body">
+                    <p><strong>Avg Progress/Day:</strong> {{ avg_progress_per_day }}%</p>
+                    <p><strong>Best Day:</strong> {{ highest_daily_progress }} pts</p>
+
+                    <hr>
+
+                    <div class="d-flex align-items-center justify-content-between mb-1">
+                        <strong>Projected Finish</strong>
+                        <span class="badge bg-{{ projection.status_class }}">
+                            {{ projection.status_label }}
+                        </span>
+                    </div>
+                    {% if projection.projected_day %}
+                    <p class="mb-1">
+                        <strong>Day {{ projection.projected_day }}</strong>
+                        <span class="text-muted small">/ {{ save.total_days }} total</span>
+                    </p>
+                    {% endif %}
+                    <p class="text-muted small mb-0">{{ projection.message }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-secondary text-white py-2">
+                    <div class="d-flex gap-2">
+                        <button id="tab-progress" class="btn btn-sm btn-light chart-tab active">📈 Progress</button>
+                        <button id="tab-score"    class="btn btn-sm btn-outline-light chart-tab">🏆 Score</button>
+                        <button id="tab-tasks"    class="btn btn-sm btn-outline-light chart-tab">✅ Tasks</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted text-center chart-empty d-none">No daily statistics yet</p>
+                    <canvas id="chartCanvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">Character Statistics</div>
+                <div class="card-body">
+                    {% if character_stats %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Character</th>
+                                <th>Energy</th>
+                                <th>Happiness</th>
+                            </tr>
+                        </thead>    
+                        <tbody>
+                            {% for char in character_stats %}
+                            <tr>
+                                <td>{{ char.name }}</td>
+                                <td>{{ char.current_energy }}%</td>
+                                <td>{{ char.current_happiness }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <p style="text-align: center; color: #666; padding: 2rem;">
+                        No character data available.
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.chartColors = {
+      primary: '#8b5cf6',
+      secondary: '#06b6d4',
+      success: '#10b981',
+      danger: '#ef4444',
+      gridColor: 'rgba(139, 92, 246, 0.1)',
+      textColor: '#a89ec9'
+    };
+    window.dailyStatsData = {{ daily_stats_json|safe }};
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  window.dailyStatsData = {{ daily_stats_json|safe }};
+</script>
+<script src="{% static 'gameplay_dashboard/js/game_statistics.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,20 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "repeatable" : false,
+    "decision" : {
+        "title" : "[NAME] - Sorry it's late!",
+        "body" : "[NAME]: Sorry, here's my part of the report. Sorry it's 10 days late, I was doing OSC!"
+    },
+    "requirements" : {
+        "stat_require" : [
+            { "stat" : "reliability", "operator" : "<", "value" : 70, "character_pk" : "*a" }
+        ]
+    },
+    "options" : [
+        {
+            "text" : "You're so unreliable!",
+            "score_effect": 0
+        }
+    ]
+}

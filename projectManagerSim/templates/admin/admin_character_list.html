@@ -1,0 +1,19 @@
+{% extends 'base_list.html' %}
+
+{% block headers %}
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Role</th>
+    <th>Personality</th>
+    <th>Traits</th>
+    <th>Description</th>
+{% endblock %}
+
+{% block row %}
+    <td>{{ object.first_name }}</td>
+    <td>{{ object.last_name }}</td>
+    <td>{{ object.get_role_display_full }}</td>
+    <td>{{ object.get_personality_type_icon }} {{ object.get_personality_type_display }}</td>
+    <td>{{ object.get_traits_display }}</td>
+    <td>{{ object.description }}</td>
+{% endblock %}

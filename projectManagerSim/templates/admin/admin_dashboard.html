@@ -1,0 +1,23 @@
+{% extends "admin_base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block page_body %}
+
+  <div class="stats-grid">
+
+    {% include "admin/partials/stat_card.html" with icon="👤" label="Total Users" value=total_users|default:"0" %}
+    {% include "admin/partials/stat_card.html" with icon="💾" label="Total Saves" value=total_saves|default:"0" %}
+    {% include "admin/partials/stat_card.html" with icon="✅" label="Completed Saves" value=completed_saves|default:"0" %}
+
+    <div class="stat-card">
+      <div class="circle-chart">📈</div>
+      <div class="stat-info">
+        <div class="label">Average Progress</div>
+        <div class="value">{{ avg_progress|default:"0" }}%</div>
+      </div>
+    </div>
+
+  </div>
+
+
+{% endblock %}

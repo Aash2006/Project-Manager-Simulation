@@ -1,0 +1,26 @@
+{
+    "decision_type" : "CHARACTER",
+    "character_pk" : "*a",
+    "percentage_chance" : 5,
+    "repeatable" : true,
+    "decision" : {
+        "title" : "[NAME] - Grading Rubric",
+        "body" : "[NAME]: I checked the grading rubric and we're not using the correct deployment system!"
+    },
+    "options" : [
+        {
+            "text" : "Oh dear, we'll switch systems now.",
+            "create_tasks" : [
+                {
+                    "task_type" : 8, 
+                    "name" : "Fix Deployment",
+                    "time_to_complete": 2,
+                    "unlocks_at_percent":0,
+                    "number_of_people_required":2,
+                    "energy_cost": 5,
+                    "difficulty": 1
+                }
+            ]
+        }
+    ]
+}

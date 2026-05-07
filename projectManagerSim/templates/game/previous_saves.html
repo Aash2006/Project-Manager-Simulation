@@ -1,0 +1,177 @@
+{% extends 'base_body.html' %}
+{% load static %}
+
+{% block title %}Previous Runs{% endblock %}
+
+{% block page_body %}
+<div class="container mt-5 pb-5">
+
+  <div class="d-flex align-items-center mb-4">
+    <a href="{% url 'game_start' %}" class="btn btn-outline-secondary btn-sm me-3">← Back</a>
+    <h2 class="mb-0">Previous Runs</h2>
+  </div>
+
+  {% if not saves_data %}
+  <div class="text-center text-muted py-5">
+    <h4>No completed runs yet.</h4>
+    <p>Finish a game to see your results here.</p>
+    <a href="{% url 'game_start' %}" class="btn btn-primary mt-2">Start a Game</a>
+  </div>
+
+  {% else %}
+
+  {% for entry in saves_data %}
+  {% with save=entry.save %}
+
+  <div class="card shadow-sm border-0 mb-4">
+
+    
+    <div class="card-header bg-primary text-white py-3"
+         style="cursor:pointer;"
+         data-bs-toggle="collapse"
+         data-bs-target="#run-{{ save.id }}"
+         aria-expanded="false">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-3">
+          <span class="fs-3 fw-bold">{{ save.final_grade|default:"?" }}</span>
+          <div>
+            <div class="fw-semibold">
+              {{ save.last_used|date:"d M Y" }}
+              <span class="opacity-75 small ms-2">{{ save.last_used|timesince }} ago</span>
+            </div>
+            <div class="small opacity-75">
+              {{ save.progress_percent }}% complete &middot;
+              Day {{ entry.total_days_played }} / {{ save.total_days }} &middot;
+              Score {{ save.score }}
+            </div>
+          </div>
+        </div>
+        <span class="small opacity-75">▼ Details</span>
+      </div>
+    </div>
+
+    {# Collapsible body #}
+    <div id="run-{{ save.id }}" class="collapse">
+      <div class="card-body p-4">
+
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-md-3">
+            <div class="border rounded p-3 text-center bg-light h-100">
+              <div class="fs-4 fw-bold text-primary">{{ save.progress_percent }}%</div>
+              <div class="text-muted small">Completed</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="border rounded p-3 text-center bg-light h-100">
+              <div class="fs-4 fw-bold text-success">{{ entry.tasks_completed }}</div>
+              <div class="text-muted small">Tasks Done</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="border rounded p-3 text-center bg-light h-100">
+              <div class="fs-4 fw-bold {% if entry.tasks_failed > 0 %}text-danger{% else %}text-success{% endif %}">
+                {{ entry.tasks_failed }}
+              </div>
+              <div class="text-muted small">Tasks Failed</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="border rounded p-3 text-center bg-light h-100">
+              <div class="fs-4 fw-bold text-primary">{{ entry.avg_progress_per_day }}%</div>
+              <div class="text-muted small">Avg Progress/Day</div>
+            </div>
+          </div>
+        </div>
+
+        {% if entry.character_stats %}
+        <h5 class="mb-3">👥 Team Performance</h5>
+        <div class="row g-3 mb-4">
+          {% for char in entry.character_stats %}
+          <div class="col-md-3 col-sm-6">
+            <div class="border rounded p-3 h-100">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <span class="fs-5">{{ char.personality_icon }}</span>
+                <div class="lh-sm">
+                  <div class="fw-bold small">{{ char.name }}</div>
+                  <div class="text-muted" style="font-size:0.7rem;">{{ char.role }}</div>
+                </div>
+                <span class="ms-auto badge bg-{{ char.performance_class }}">{{ char.performance_label }}</span>
+              </div>
+
+              <div class="mb-2">
+                <div class="d-flex justify-content-between small mb-1">
+                  <span>⚡ Energy</span><span>{{ char.final_energy }}/100</span>
+                </div>
+                <div class="progress" style="height:6px;">
+                  <div class="progress-bar
+                    {% if char.final_energy >= 60 %}bg-success
+                    {% elif char.final_energy >= 30 %}bg-warning
+                    {% else %}bg-danger{% endif %}"
+                    style="width:{{ char.final_energy }}%"></div>
+                </div>
+              </div>
+
+              <div class="mb-2">
+                <div class="d-flex justify-content-between small mb-1">
+                  <span>😊 Happiness</span><span>{{ char.final_happiness }}/100</span>
+                </div>
+                <div class="progress" style="height:6px;">
+                  <div class="progress-bar
+                    {% if char.final_happiness >= 60 %}bg-success
+                    {% elif char.final_happiness >= 30 %}bg-warning
+                    {% else %}bg-danger{% endif %}"
+                    style="width:{{ char.final_happiness }}%"></div>
+                </div>
+              </div>
+
+              {% if char.traits %}
+              <div class="mt-2">
+                {% for trait in char.traits %}
+                <span class="badge bg-light text-dark border me-1 small">{{ trait }}</span>
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {# ── Row 3: Chart + Tips ── #}
+        <div class="row g-4">
+          <div class="col-md-7">
+            <h5 class="mb-3">📈 Daily Progress</h5>
+            <canvas id="chart-{{ save.id }}" height="200"></canvas>
+          </div>
+          <div class="col-md-5">
+            <h5 class="mb-3">💡 Areas for Improvement</h5>
+            <ul class="list-unstyled mb-0">
+              {% for icon, tip in entry.improvement_tips %}
+              <li class="mb-3 d-flex align-items-start gap-2">
+                <span class="fs-5 flex-shrink-0">{{ icon }}</span>
+                <span class="text-muted small">{{ tip }}</span>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+      </div>{# /card-body #}
+    </div>{# /collapse #}
+  </div>{# /card #}
+
+  {# Inject this run's daily stats for the chart script #}
+  <script>
+    window.runStats = window.runStats || {};
+    window.runStats["{{ save.id }}"] = {{ entry.daily_stats_json|safe }};
+  </script>
+
+  {% endwith %}
+  {% endfor %}
+
+  {% endif %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'gameplay_dashboard/js/previous_saves.js' %}"></script>
+{% endblock %}

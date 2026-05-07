@@ -1,0 +1,46 @@
+<div class="row" id="attention">
+    {% if low_energy %}
+    <div class="col">
+        <h5 class="mb-1">Characters have low energy</h5>
+        {% if low_energy.count == 1 %}
+        <p>{{low_energy.0.first_name}} {{low_energy.0.last_name}} is low on energy & still working!</p>
+        {% else %}
+        <p>{{low_energy.count}} team members are low on energy & still working!</p>
+        {% endif %}
+        <a href="{% url 'game_characters' %}" class="btn btn-primary">
+            Check on your teammates
+        </a>
+    </div>
+    {% endif %}
+    {% if working_no_task %}
+    <div class="col">
+        <h5 class="mb-1">Characters have nothing to do</h5>
+        {% if working_no_task.count == 1 %}
+        <p>{{working_no_task.0.character.first_name}} {{working_no_task.0.character.last_name}} is working without a task!</p>
+        {% else %}
+        <p>{{working_no_task.count}} team members are working without a task!</p>
+        {% endif %}
+        <a href="{% url 'game_characters' %}" class="btn btn-primary">
+            Check on your teammates
+        </a>
+    </div>
+    {% endif %}
+    {% if max_energy %}
+    <div class="col">
+        <h5 class="mb-1">Characters are fully rested</h5>
+        {% if max_energy.count == 1 %}
+        <p>{{max_energy.0.character.first_name}} {{max_energy.0.character.last_name}} is fully rested and ready for a task!</p>
+        {% else %}
+        <p>{{max_energy.count}} team members are fully rested and ready for a task!</p>
+        {% endif %}
+        <a href="{% url 'game_tasks' %}" class="btn btn-primary">
+            Go to Tasks
+        </a>
+    </div>
+    {% endif %}
+    {% if not low_energy and not working_no_task and not max_energy %}
+        <div class="col-12 text-center py-4">
+            <p class="text-muted italic">Nothing to report.</p>
+        </div>
+    {% endif %}
+</div>
