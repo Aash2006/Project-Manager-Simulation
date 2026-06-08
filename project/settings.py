@@ -30,7 +30,7 @@ if env_debug == 'true':
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ['k23150452.pythonanywhere.com', 'localhost', '127.0.0.1','web-production-6784f.up.railway.app']
+ALLOWED_HOSTS = ['k23150452.pythonanywhere.com', 'localhost', '127.0.0.1','web-production-6784f.up.railway.app', '.onrender.com']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://web-production-6784f.up.railway.app',
